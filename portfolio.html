@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore o portfólio da ALS Máquinas: confira nossos projetos de prensas hidráulicas e máquinas para borracha sob medida, entregues com robustez e precisão para todo Brasil.">
+  <meta name="robots" content="index,follow">
+  <title>ALS Máquinas | Portfólio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portfolio/portfolio.css">
+  <link rel="shortcut icon" href="assets/icons/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <div class="header-esquerda">
+        <div class="logo">
+          <a href="index.html"><img src="assets/imgs/logo-header.svg" alt="Als Máquinas Logo"></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">INÍCIO</a></li>
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-trigger" data-menu-target="machines" aria-expanded="false" aria-controls="mega-machines">
+              MÁQUINAS <img src="assets/icons/setinha-baixo.svg" alt="" aria-hidden="true">
+            </button>
+          </li>
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-trigger" data-menu-target="pecas" aria-expanded="false" aria-controls="mega-pecas">
+              PEÇAS & MANUTENÇÃO <img src="assets/icons/setinha-baixo.svg" alt="" aria-hidden="true">
+            </button>
+          </li>
+          <li><a href="index.html#servicos">SERVIÇOS</a></li>
+          <li><a href="index.html#sobre">SOBRE NÓS</a></li>
+        </ul>
+      </div>
+      <div class="orcamento">
+        <a href="orcamento.html" class="cta-header">SOLICITAR ORÇAMENTO</a>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+  </header>
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
+    <div class="mobile-menu-header">
+      <img src="assets/imgs/logo-header-mobile.svg" alt="Als Máquinas Logo" loading="lazy">
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html" aria-current="page">INÍCIO</a></li>
+      <li>
+        <button type="button" data-menu-target="machines" aria-controls="mega-machines" aria-expanded="false">
+          MÁQUINAS
+          <img src="assets/icons/setinha-baixo.svg" alt="" aria-hidden="true">
+        </button>
+      </li>
+      <li>
+        <button type="button" data-menu-target="pecas" aria-controls="mega-pecas" aria-expanded="false">
+          PEÇAS & MANUTENÇÃO
+          <img src="assets/icons/setinha-baixo.svg" alt="" aria-hidden="true">
+        </button>
+      </li>
+      <li><a href="index.html#servicos">SERVIÇOS</a></li>
+      <li><a href="index.html#sobre">SOBRE NÓS</a></li>
+    </ul>
+    <a href="orcamento.html" class="mobile-menu-cta">SOLICITAR ORÇAMENTO</a>
+  </aside>
+
+  <div class="mega-menu-backdrop" aria-hidden="true"></div>
+
+  <section class="mega-menu-panel" id="mega-machines" data-menu-panel="machines" aria-hidden="true">
+    <div class="mega-menu-header">
+      <h3 class="mega-menu-title">NOSSAS MÁQUINAS</h3>
+      <button class="mega-close" aria-label="Fechar menu de máquinas">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mega-grid mega-grid-machines">
+      <a href="portfolio.html" class="mega-card">
+        <img src="assets/imgs/portfolio.webp" alt="Portfólio ALS" loading="lazy">
+        <span>PORTFÓLIO</span>
+      </a>
+      <a href="maquinas/prensas-hidraulicas.html" class="mega-card">
+        <img src="assets/imgs/prensas.webp" alt="Prensas ALS" loading="lazy">
+        <span>PRENSAS</span>
+      </a>
+      <a href="maquinas/misturadores.html" class="mega-card">
+        <img src="assets/imgs/misturadores.webp" alt="Misturadores ALS" loading="lazy">
+        <span>MISTURADORES</span>
+      </a>
+      <a href="maquinas/guilhotinas.html" class="mega-card">
+        <img src="assets/imgs/guilhotinas.webp" alt="Guilhotinas ALS" loading="lazy">
+        <span>GUILHOTINAS</span>
+      </a>
+      <a href="maquinas/unidades-hidraulicas.html" class="mega-card">
+        <img src="assets/imgs/unidades.webp" alt="Unidades hidráulicas ALS" loading="lazy">
+        <span>UNIDADES</span>
+      </a>
+      <a href="maquinas/raspadores-de-borracha.html" class="mega-card">
+        <img src="assets/imgs/raspadores.webp" alt="Raspadores ALS" loading="lazy">
+        <span>RASPADORES</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="mega-menu-panel" id="mega-pecas" data-menu-panel="pecas" aria-hidden="true">
+    <div class="mega-menu-header">
+      <h3 class="mega-menu-title">PEÇAS & MANUTENÇÃO</h3>
+      <button class="mega-close" aria-label="Fechar menu de peças e manutenção">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mega-grid mega-grid-pecas">
+      <a href="pecas/bombas-hidraulicas.html" class="mega-card mega-card-horizontal">
+        <img src="assets/icons/bombas.webp" alt="Bombas hidráulicas" loading="lazy">
+        <span>BOMBAS HIDRÁULICAS</span>
+      </a>
+      <a href="pecas/valvulas-hidraulicas.html" class="mega-card mega-card-horizontal">
+        <img src="assets/icons/valvulas.webp" alt="Válvulas hidráulicas" loading="lazy">
+        <span>VÁLVULAS HIDRÁULICAS</span>
+      </a>
+      <a href="pecas/gaxetas-e-vedacoes.html" class="mega-card mega-card-horizontal">
+        <img src="assets/icons/gaxetas.webp" alt="Gaxetas e vedações" loading="lazy">
+        <span>GAXETAS & VEDAÇÕES</span>
+      </a>
+      <a href="pecas/isoladores-termicos.html" class="mega-card mega-card-horizontal">
+        <img src="assets/icons/isoladores.webp" alt="Isoladores de calor" loading="lazy">
+        <span>ISOLADORES DE CALOR</span>
+      </a>
+      <div class="mega-card mega-card-wide">
+        <span>DEMAIS COMPONENTES SOB CONSULTA</span>
+      </div>
+    </div>
+  </section>
+  <a class="contato-wtzp" href="https://wa.me/5516991265833?text=Gostaria%20de%20Falar%20com%20um%20Atendente" target="_blank" aria-label="Abrir contato no WhatsApp">
+    <img src="assets/imgs/contato.svg" alt="WhatsApp" loading="lazy">
+  </a>
+
+  <main id="conteudo-principal">
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <div class="badge-icon"></div>
+          <span>Portfólio ALS • Conheça nosso trabalho</span>
+        </div>
+        <div class="hero-text">
+          <h1>Projetos reais. Máquinas que <span>entregam resultado.</span></h1>
+          <p>Veja prensas, misturadores, guilhotinas e soluções sob medida já entregues para clientes em todo o Brasil.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="hero-btn primary" href="#reformas">
+            CONHECER REFORMAS
+          </a>
+          <a class="hero-btn ghost" href="#reformas" aria-label="Ir para a galeria do portfólio">
+            <img src="assets/icons/seta-baixo.svg" alt="" aria-hidden="true">
+          </a>
+        </div>
+        <div class="hero-gallery">
+          <div class="hero-thumb">
+            <img src="assets/imgs/hero-port1.webp" alt="Máquina reformada ALS 1">
+          </div>
+          <div class="hero-thumb">
+            <img src="assets/imgs/hero-port2.webp" alt="Máquina reformada ALS 2">
+          </div>
+          <div class="hero-thumb">
+            <img src="assets/imgs/hero-port3.webp" alt="Máquina reformada ALS 3">
+          </div>
+          <div class="hero-thumb">
+            <img src="assets/imgs/hero-port4.webp" alt="Máquina reformada ALS 4">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="galeria" id="portfolio-grid">
+      <div class="galeria-container">
+        <h2>Conheça a <span>galeria ALS</span></h2>
+        <div class="galeria-grid">
+          <div class="galeria-item"><img src="assets/imgs/galeria-1.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-2.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-3.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-4.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-5.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-6.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-7.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-8.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-9.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-10.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-11.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-12.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-13.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-14.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-15.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+          <div class="galeria-item"><img src="assets/imgs/galeria-16.webp" alt="Projeto ALS em operação" loading="lazy"></div>
+        </div>
+        <div class="hero-actions" style="margin: 0 auto; width: fit-content;">
+          <a class="hero-btn primary " href="orcamento.html">
+            SOLICITAR ORÇAMENTO
+          </a>
+          <a class="hero-btn ghost" href="orcamento.html" aria-label="Ir para a Solicitar Orçamento">
+            <img src="assets/icons/seta-baixo.svg" style="transform: rotate(-135deg);" alt="" aria-hidden="true">
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="galeria-divisoria">
+      <img src="assets/imgs/divisoria-depoimentos.svg" alt="" aria-hidden="true" loading="lazy">
+    </div>
+    <section class="linhas" id="linhas">
+      <div class="linhas-topo">
+        <img src="assets/imgs/logo-linhas.svg" alt="ALS">
+        <h2>Linhas de <span>máquinas</span> da nossa empresa</h2>
+        <p>Desenvolvemos máquinas focadas em produtividade, segurança e durabilidade para diferentes etapas do processo em borracha.</p>
+      </div>
+      <div class="linhas-cards">
+        <article class="linha-card">
+          <div class="linha-ilustra">
+            <img src="assets/imgs/prensas-linhas.webp" alt="Prensas hidráulicas">
+          </div>
+          <div class="linha-conteudo">
+            <h3>Prensas hidráulicas</h3>
+            <p>Podem ser dimensionadas em área de mesa, força de pistão e curso conforme a necessidade do seu processo.</p>
+            <a href="maquinas/prensas-hidraulicas.html" class="linha-btn">CONHECER PRENSAS</a>
+          </div>
+        </article>
+        <article class="linha-card">
+          <div class="linha-ilustra">
+            <img src="assets/imgs/misturadores-linhas.webp" alt="Misturadores de borracha">
+          </div>
+          <div class="linha-conteudo">
+            <h3>Misturadores de borracha</h3>
+            <p>Equipamentos indicados para mistura homogênea de compostos de borracha, com controle de tempo e condições de trabalho.</p>
+            <a href="maquinas/misturadores.html" class="linha-btn">CONHECER MISTURADORES</a>
+          </div>
+        </article>
+        <article class="linha-card">
+          <div class="linha-ilustra">
+            <img src="assets/imgs/guilhotinas-linhas.webp" alt="Guilhotinas para borracha">
+          </div>
+          <div class="linha-conteudo">
+            <h3>Guilhotinas para borracha</h3>
+            <p>Desenvolvidas para corte e refilamento de placas e perfis de borracha, garantindo medidas exatas e ótimo aproveitamento.</p>
+            <a href="maquinas/guilhotinas.html" class="linha-btn">CONHECER GUILHOTINAS</a>
+          </div>
+        </article>
+        <article class="linha-card">
+          <div class="linha-ilustra">
+            <img src="assets/imgs/unidades-linhas.webp" alt="Unidades hidráulicas">
+          </div>
+          <div class="linha-conteudo">
+            <h3>Unidades hidráulicas</h3>
+            <p>Projetadas para alimentar sistemas hidráulicos com confiabilidade e segurança, podendo ser integradas a prensas novas ou já existentes.</p>
+            <a href="maquinas/unidades-hidraulicas.html" class="linha-btn">CONHECER UNIDADES</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="faixas" style="margin-top: 104px;">
+      <div class="faixa dois"></div>
+      <div class="faixa">
+        <div class="itens">
+          <p>Prensas hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Misturadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Guilhotinas para borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Unidades hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Raspadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Válvulas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Bombas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Isoladores de calor </p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Gaxetas & vedações</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Prensas hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Misturadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Guilhotinas para borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Unidades hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Raspadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Válvulas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Bombas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Isoladores de calor </p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Gaxetas & vedações</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Prensas hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Misturadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Guilhotinas para borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Unidades hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Raspadores de borracha</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Válvulas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Bombas Hidráulicas</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Isoladores de calor </p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+          <p>Gaxetas & vedações</p>
+          <img src="assets/icons/separador-faixa.svg" alt="" aria-hidden="true" />
+        </div>
+      </div>
+    </section>
+    <section class="reformas" id="reformas">
+      <div class="reformas-inner">
+        <div class="reformas-top">
+          <div class="reformas-title">
+            <h2>Conheça as máquinas <span>reformadas</span> pela ALS</h2>
+          </div>
+          <div class="reformas-controls">
+            <div class="reformas-counter"><span class="current">01</span>/<span class="total">04</span></div>
+            <div class="reformas-nav">
+              <button class="reformas-btn ghost" type="button" aria-label="Slide anterior">
+                <img src="assets/icons/seta-vermelha.svg" alt="" aria-hidden="true">
+              </button>
+              <button class="reformas-btn primary" type="button" aria-label="Próximo slide">
+                <img src="assets/icons/seta-baixo.svg" alt="" aria-hidden="true">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="reformas-slider" data-reformas-slider>
+          <div class="reformas-compare" style="--pos:50%;">
+            <img class="reformas-img reformas-before" src="assets/imgs/hero-port2.webp" alt="Máquina antes da reforma" loading="lazy">
+            <img class="reformas-img reformas-after" src="assets/imgs/hero-port2.webp" alt="Máquina depois da reforma" loading="lazy">
+            <div class="reformas-divider"></div>
+            <div class="reformas-handle">
+              <span></span>
+              <span></span>
+            </div>
+            <input class="reformas-range" type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
+          </div>
+        </div>
+
+        <div class="reformas-cta">
+          <a class="reformas-btn primary" href="https://wa.me/5516991265833?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20reformas." target="_blank">GOSTARIA DE UMA REFORMA</a>
+        </div>
+      </div>
+    </section>
+    <div class="reformas-divisoria">
+      <img src="assets/imgs/divisoria-depoimentos.svg" alt="">
+    </div>
+
+    <section class="sobre" id="sobre">
+      <div class="sobre-inner">
+        <div class="sobre-media">
+          <img src="assets/imgs/sobre-als.webp" alt="Equipe ALS operando máquina">
+        </div>
+        <div class="sobre-conteudo">
+          <p class="sobre-eyebrow">CONHEÇA NOSSA HISTÓRIA</p>
+          <h2>Há mais de 25 anos <span>impulsionando</span> a indústria!</h2>
+          <p class="sobre-texto">
+            Desde 1998, a ALS Máquinas atua no desenvolvimento e fabricação de prensas hidráulicas e equipamentos industriais voltados ao processamento de borracha, sempre guiada por engenharia robusta, segurança operacional e eficiência produtiva. Ao longo de mais de duas décadas, consolidamos nossa atuação como parceiros de indústrias que buscam confiabilidade, excelente custo-benefício, padronização, e alto desempenho em seus processos.
+          </p>
+          <div class="sobre-acoes">
+            <a class=" sobre-btn" href="#portfolio-grid">CONHECER GALERIA</a>
+            <div><a class="sobre-icon-btn" href="https://www.facebook.com/alsmaquinasfranca" target="_blank" aria-label="Facebook ALS">
+                <img src="assets/icons/facebook.svg" alt="Facebook ALS">
+              </a></div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-metricas">
+        <article class="sobre-metrica">
+          <div class="sobre-metrica-icone">
+            <img src="assets/icons/25anos.webp" alt="+25 anos no mercado">
+          </div>
+          <div class="sobre-metrica-texto">
+            <h3>+25 anos no mercado</h3>
+            <p>Experiência em projetos, fabricação e melhorias de máquinas para borracha.</p>
+          </div>
+        </article>
+        <article class="sobre-metrica">
+          <div class="sobre-metrica-icone">
+            <img src="assets/icons/engrenagens.webp" alt="+800 equipamentos produzidos">
+          </div>
+          <div class="sobre-metrica-texto">
+            <h3>+800 equipamentos produzidos</h3>
+            <p>Equipamentos instalados em várias linhas de produção, ajustados ao seu processo.</p>
+          </div>
+        </article>
+        <article class="sobre-metrica">
+          <div class="sobre-metrica-icone">
+            <img src="assets/icons/mapa-brasil.webp" alt="+10 setores em todo País">
+          </div>
+          <div class="sobre-metrica-texto">
+            <h3>+10 setores em todo País</h3>
+            <p>Presença em pisos, calçados, automotivo, remoldagem de pneus e muito mais.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <div class="reformas-divisoria" style="transform: rotate(0); background-color: #E2E2E3;">
+      <img src="assets/imgs/divisoria-depoimentos.svg" alt="">
+    </div>
+    <section class="fabrica" aria-labelledby="fabrica-title">
+      <div class="fabrica-inner">
+        <div class="fabrica-texto">
+          <h2 id="fabrica-title">Visite nossa <span>fábrica</span> e veja a <span>qualidade</span> acontecer</h2>
+          <ul class="fabrica-lista">
+            <li><img src="assets/icons/check.svg" alt="" aria-hidden="true"><span>Veja de perto nossas máquinas</span></li>
+            <li><img src="assets/icons/check.svg" alt="" aria-hidden="true"><span>Converse conosco e tire dúvidas</span></li>
+            <li><img src="assets/icons/check.svg" alt="" aria-hidden="true"><span>Conheça a estrutura da fábrica</span></li>
+          </ul>
+          <div class="fabrica-acoes">
+            <a class="fabrica-btn" href="https://wa.me/5516991265833?text=Gostaria%20de%20Agendar%20uma%20Visita!" target="_blank">AGENDAR VISITA</a>
+            <a class="fabrica-cta-icon" href="https://wa.me/5516991265833?text=Gostaria%20de%20Agendar%20uma%20Visita!" target="_blank" aria-label="Ir para agendar visita">
+              <img src="assets/icons/seta-baixo.svg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="fabrica-mapa">
+          <div class="fabrica-map-frame">
+            <iframe title="Mapa da ALS Máquinas" src="https://www.google.com/maps?q=R.%20Mario%20David%2C%201019%20-%20Jardim%20Roselandia%2C%20Franca%20-%20SP%2C%2014405-034&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <p class="fabrica-endereco">R. Mario David, 1019 - Jardim Roselandia, Franca - SP, 14405-034</p>
+        </div>
+      </div>
+    </section>
+    <div class="divisoria-footer" style="background: #E2E2E3;">
+      <img src="assets/imgs/divisoria-footer.svg" alt="">
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <img src="assets/imgs/logo-footer.svg" alt="ALS Máquinas" class="footer-logo">
+      <p class="footer-headline"><span>ALS Máquinas:</span> robustez, precisão e confiança industrial.</p>
+    </div>
+    <div class="footer-separator"></div>
+    <div class="footer-links">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>Navegação</h3>
+          <a href="index.html">Início</a>
+          <a href="index.html#maquinas">Máquinas em Ação</a>
+          <a href="index.html#linhas">Linhas de Máquinas</a>
+          <a href="index.html#servicos">Serviços &amp; Soluções</a>
+          <a href="index.html#pecas">Peças &amp; Manutenção</a>
+          <a href="index.html#setores">Setores</a>
+          <a href="index.html#sobre">Sobre Nós</a>
+          <a href="index.html#depoimentos">Testemunhos</a>
+          <a href="index.html#fabrica-title">Nossa Fábrica</a>
+        </div>
+        <div class="footer-col">
+          <h3>Máquinas</h3>
+          <a href="#hero">Nosso Portfólio</a>
+          <a href="maquinas/prensas-hidraulicas.html">Prensas Hidráulicas</a>
+          <a href="maquinas/misturadores.html">Misturadores de Borracha</a>
+          <a href="maquinas/raspadores-de-borracha.html">Batedores de Raspa</a>
+          <a href="maquinas/guilhotinas.html">Guilhotinas</a>
+          <a href="maquinas/unidades-hidraulicas.html">Unidades hidráulicas</a>
+        </div>
+        <div class="footer-col">
+          <h3>Peças &amp; Manutenção</h3>
+          <a href="pecas/bombas-hidraulicas.html">Bombas Hidráulicas</a>
+          <a href="pecas/valvulas-hidraulicas.html">Válvulas Hidráulicas</a>
+          <a href="pecas/gaxetas-e-vedacoes.html">Gaxetas &amp; Vedações</a>
+          <a href="pecas/isoladores-termicos.html">Isoladores de Calor</a>
+        </div>
+        <div class="footer-col">
+          <h3>Institucional</h3>
+          <a href="institucionais/politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="institucionais/termos-de-usu.html">Termos de Uso</a>
+          <a href="institucionais/politica-de-cookies.html">Política de Cookies</a>
+          <a href="institucionais/politica-de-reembolso.html">Política de Reembolso</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contato &amp; Localização</h3>
+          <a href="https://wa.me/5516991265833?text=Gostaria%20de%20Falar%20com%20um%20Atendente" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://www.facebook.com/alsmaquinasfranca" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:alsmaquinas@gmail.com" target="_blank" rel="noopener noreferrer">E-mail</a>
+          <p class="footer-label">Endereço:</p>
+          <p class="footer-meta">R. Mario David, 1019 - Jardim<br>Roselandia, Franca - SP</p>
+          <p class="footer-label">Horário de atendimento:</p>
+          <p class="footer-meta">Segunda a sábado, das 7h<br>às 18h</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <span>© 2025 ALS Máquinas LTDA-ME. Todos os direitos reservados.</span>
+        <span>Site desenvolvido por <strong>Merco</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

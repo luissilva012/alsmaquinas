@@ -1,0 +1,259 @@
+.pecas {
+  position: relative;
+  padding: 90px 0px 90px;
+  background: #ffffff;
+  color: #0f0f15;
+  overflow: hidden;
+  margin-top: -2px;
+}
+
+.pecas-inner {
+  max-width: 1648px;
+  padding: 0px 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.pecas-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.pecas-headline h2 {
+  margin: 14px 0px;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  font-family: 'Stolzl', sans-serif;
+  max-width: 630px;
+}
+
+.pecas-headline h2 span {
+  background: linear-gradient(90deg, #cf162d 0%, #c40820 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Stolzl', sans-serif;
+}
+
+.pecas-texto p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(16, 16, 23, 0.8);
+  font-weight: 500;
+}
+
+.pecas-logo {
+  height: 28px;
+  width: auto;
+}
+.pecas-texto {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  max-width: 500px;
+}
+
+.pecas-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0px 22px;
+  font-size: 17px;
+  height: 57px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #cf162d 0%, #be0119 100%);
+  color: #ffffff;
+}
+
+.pecas-btn:hover {
+  filter: brightness(1.1);
+}
+
+.pecas-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pecas-btn:hover::after {
+  animation: hero-shine 0.7s ease forwards;
+}
+
+@keyframes hero-shine {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+.pecas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 18px;
+}
+
+.pecas-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 176px;
+  padding: 22px;
+  border-radius: 18px;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+  text-decoration: none;
+}
+
+.pecas-card:nth-child(5) {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.pecas-card span {
+  position: relative;
+  z-index: 2;
+  font-size: 21px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.pecas-card span::after {
+  content: '→';
+  font-size: 26px;
+  position: absolute;
+  right: -28px;
+  top: -5px;
+}
+
+.pecas-card:nth-child(5) span::after {
+  display: none;
+}
+
+.pecas-card.bombas {
+  background-image: url('../../assets/imgs/bombas-bg.webp');
+}
+
+.pecas-card.valvulas {
+  background-image: url('../../assets/imgs/valvulas-bg.webp');
+}
+
+.pecas-card.gaxetas {
+  background-image: url('../../assets/imgs/gaxetas-bg.webp');
+}
+
+.pecas-card.isoladores {
+  background-image: url('../../assets/imgs/isoladores-bg.webp');
+}
+
+.pecas-card.sob-consulta {
+  background-image: url('../../assets/imgs/sob-consulta-bg.webp');
+  grid-column: 1 / -1;
+}
+
+.pecas-divisoria {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgba(15, 15, 21, 0.12);
+}
+
+.pecas-divisoria img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: -2px;
+}
+
+@media (max-width: 1400px) {
+}
+@media (max-width: 1200px) {
+  .pecas-header {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pecas-headline h2 {
+    font-size: 38px;
+  }
+  .pecas-texto {
+    justify-self: flex-start;
+    align-items: flex-start;
+  }
+
+  .pecas-btn {
+    justify-self: flex-start;
+  }
+
+  .pecas-headline h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pecas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pecas-card {
+    min-height: 180px;
+    grid-column: 1 !important;
+  }
+
+  .pecas-card.sob-consulta {
+    grid-column: 1 / 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .pecas-headline h2 {
+    font-size: 30px;
+  }
+
+  .pecas-headline p {
+    font-size: 16px;
+  }
+}

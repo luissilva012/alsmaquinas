@@ -1,0 +1,57 @@
+section.faixas {
+  position: relative;
+  min-height: 95px;
+  overflow: hidden;
+  width: 100%;
+}
+section.faixas .faixa {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: -5%;
+  width: 110%;
+  height: 80px;
+  background-color: #0f0f15;
+  transform: rotate(0deg);
+  z-index: 3;
+  overflow: hidden;
+}
+section.faixas .faixa .itens {
+  display: flex;
+  align-items: center;
+  animation: faixa 60s linear infinite;
+}
+@keyframes faixa {
+  0% {
+    transform: translate(-2300px, 0);
+  }
+  100% {
+    transform: translate(0%, 0);
+  }
+}
+section.faixas .faixa.dois {
+  background: linear-gradient(90deg, #cf162d 0%, #be0119 100%);
+  transform: rotate(-1deg);
+  height: 80px;
+}
+section.faixas .faixa p {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  min-width: 240px;
+}
+section.faixas .faixa img {
+  width: 31px;
+  height: 12px;
+}
+/* Responsivo */
+@media screen and (max-width: 1000px) {
+  section.faixas .faixa.dois {
+    transform: rotate(-2.5deg);
+  }
+  section.faixas .faixa p {
+    font-size: 15px;
+    min-width: 220px;
+  }
+}

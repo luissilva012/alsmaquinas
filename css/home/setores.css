@@ -1,0 +1,150 @@
+.slider {
+  padding: 120px 0px 120px;
+  width: 100%;
+  overflow: hidden;
+  background: rgba(15, 15, 21, 0.12);
+}
+
+.slide {
+  position: relative;
+  max-width: 1648px;
+  padding: 0px 24px;
+  margin: 0 auto;
+}
+
+.slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  max-width: 1648px;
+  margin: 0 auto 40px auto;
+}
+
+.slider-header h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-family: 'Stolzl', sans-serif;
+  max-width: 669px;
+  color: #0f0f15;
+}
+
+.slider-header h2 span,
+.item h3 span {
+  background: linear-gradient(90deg, #cf162d 0%, #c40820 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-family: 'Stolzl', sans-serif;
+}
+
+.item h3 span {
+  font-weight: 700;
+  font-family: 'figtree', sans-serif;
+}
+
+.slider .setas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.slider .setas button {
+  border-radius: 8px;
+  padding: 12px 22px;
+  cursor: pointer;
+  border: none;
+}
+.slider .setas button.avancar {
+  background: linear-gradient(90deg, #cf162d 0%, #be0119 100%);
+}
+
+.slider .setas button.voltar {
+  background: #fff;
+}
+.slider .setas button img {
+  width: 23px;
+  max-width: 23px;
+}
+
+/* <div class="slide"> */
+
+.slide .itens {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 32px;
+  transition: all 0.4s;
+}
+.slide .itens .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #e2e2e3;
+  background: linear-gradient(180deg, #e2e2e3 0%, #fff 100%);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  padding: 16px 16px 24px 16px;
+}
+
+.slide .item img {
+  display: block;
+  max-width: 328px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(150, 151, 154, 0.8);
+}
+
+.slide .item h3 {
+  color: #0f0f15;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 24px 0px 10px 0px;
+  width: 100%;
+}
+
+.slide .item p {
+  color: rgba(15, 15, 21, 0.7);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .slider {
+    padding: 100px 0px;
+  }
+
+  .slider-header h2 {
+    font-size: 36px;
+  }
+
+  .slider-header {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .slide {
+    overflow-x: scroll;
+  }
+  .slide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .slider-header h2 {
+    font-size: 30px;
+  }
+}
