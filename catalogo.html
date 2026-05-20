@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Cat&aacute;logo de m&aacute;quinas industriais da ALS M&aacute;quinas com equipamentos sob consulta, filtros por categoria e solicita&ccedil;&atilde;o de or&ccedil;amento pelo WhatsApp."
+        />
+        <meta name="robots" content="index,follow" />
+        <title>ALS M&aacute;quinas | Cat&aacute;logo de M&aacute;quinas</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/catalogo/catalogo.css" />
+        <link
+            rel="shortcut icon"
+            href="assets/icons/favicon.svg"
+            type="image/x-icon"
+        />
+    </head>
+
+    <body class="catalog-page">
+        <header>
+            <nav aria-label="Navega&ccedil;&atilde;o principal">
+                <div class="header-esquerda">
+                    <div class="logo">
+                        <a href="index.html"
+                            ><img
+                                src="assets/imgs/logo-header.svg"
+                                alt="Als M&aacute;quinas Logo"
+                        /></a>
+                    </div>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="catalogo.html" aria-current="page"
+                                >CAT&Aacute;LOGO</a
+                            >
+                        </li>
+                        <li class="nav-dropdown">
+                            <button
+                                type="button"
+                                class="nav-dropdown-trigger"
+                                data-menu-target="machines"
+                                aria-expanded="false"
+                                aria-controls="mega-machines"
+                            >
+                                M&Aacute;QUINAS
+                                <img
+                                    src="assets/icons/setinha-baixo.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </button>
+                        </li>
+                        <li class="nav-dropdown">
+                            <button
+                                type="button"
+                                class="nav-dropdown-trigger"
+                                data-menu-target="pecas"
+                                aria-expanded="false"
+                                aria-controls="mega-pecas"
+                            >
+                                PE&Ccedil;AS
+                                <img
+                                    src="assets/icons/setinha-baixo.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </button>
+                        </li>
+                        <li>
+                            <a href="index.html#servicos">SERVI&Ccedil;OS</a>
+                        </li>
+                        <li><a href="index.html#sobre">SOBRE N&Oacute;S</a></li>
+                    </ul>
+                </div>
+                <div class="orcamento">
+                    <a href="orcamento.html" class="cta-header"
+                        >SOLICITAR OR&Ccedil;AMENTO</a
+                    >
+                </div>
+                <button
+                    class="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </header>
+
+        <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+        <aside class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
+            <div class="mobile-menu-header">
+                <a href="index.html" aria-label="Ir para a página inicial"
+                    ><img
+                        src="assets/imgs/logo-header-mobile.svg"
+                        alt="Als M&aacute;quinas Logo"
+                        loading="lazy"
+                /></a>
+            </div>
+            <ul class="mobile-menu-links">
+                <li><a href="index.html">IN&Iacute;CIO</a></li>
+                <li>
+                    <a href="catalogo.html" aria-current="page"
+                        >CAT&Aacute;LOGO</a
+                    >
+                </li>
+                <li>
+                    <button
+                        type="button"
+                        data-menu-target="machines"
+                        aria-controls="mega-machines"
+                        aria-expanded="false"
+                    >
+                        M&Aacute;QUINAS
+                        <img
+                            src="assets/icons/setinha-baixo.svg"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                    </button>
+                </li>
+                <li>
+                    <button
+                        type="button"
+                        data-menu-target="pecas"
+                        aria-controls="mega-pecas"
+                        aria-expanded="false"
+                    >
+                        PE&Ccedil;AS
+                        <img
+                            src="assets/icons/setinha-baixo.svg"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                    </button>
+                </li>
+                <li><a href="index.html#servicos">SERVI&Ccedil;OS</a></li>
+                <li><a href="index.html#sobre">SOBRE N&Oacute;S</a></li>
+            </ul>
+            <a href="orcamento.html" class="mobile-menu-cta"
+                >SOLICITAR OR&Ccedil;AMENTO</a
+            >
+        </aside>
+
+        <div class="mega-menu-backdrop" aria-hidden="true"></div>
+
+        <section
+            class="mega-menu-panel"
+            id="mega-machines"
+            data-menu-panel="machines"
+            aria-hidden="true"
+        >
+            <div class="mega-menu-header">
+                <h3 class="mega-menu-title">NOSSAS M&Aacute;QUINAS</h3>
+                <button
+                    class="mega-close"
+                    aria-label="Fechar menu de m&aacute;quinas"
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="mega-grid mega-grid-machines">
+                <a href="portfolio.html" class="mega-card">
+                    <img
+                        src="assets/imgs/portfolio.webp"
+                        alt="Portf&oacute;lio ALS"
+                        loading="lazy"
+                    />
+                    <span>PORTF&Oacute;LIO</span>
+                </a>
+                <a href="maquinas/prensas-hidraulicas.html" class="mega-card">
+                    <img
+                        src="assets/imgs/prensas.webp"
+                        alt="Prensas ALS"
+                        loading="lazy"
+                    />
+                    <span>PRENSAS</span>
+                </a>
+                <a href="maquinas/misturadores.html" class="mega-card">
+                    <img
+                        src="assets/imgs/misturadores.webp"
+                        alt="Misturadores ALS"
+                        loading="lazy"
+                    />
+                    <span>MISTURADORES</span>
+                </a>
+                <a href="maquinas/guilhotinas.html" class="mega-card">
+                    <img
+                        src="assets/imgs/guilhotinas.webp"
+                        alt="Guilhotinas ALS"
+                        loading="lazy"
+                    />
+                    <span>GUILHOTINAS</span>
+                </a>
+                <a href="maquinas/unidades-hidraulicas.html" class="mega-card">
+                    <img
+                        src="assets/imgs/unidades.webp"
+                        alt="Unidades hidr&aacute;ulicas ALS"
+                        loading="lazy"
+                    />
+                    <span>UNIDADES</span>
+                </a>
+                <a
+                    href="maquinas/raspadores-de-borracha.html"
+                    class="mega-card"
+                >
+                    <img
+                        src="assets/imgs/raspadores.webp"
+                        alt="Raspadores ALS"
+                        loading="lazy"
+                    />
+                    <span>RASPADORES</span>
+                </a>
+            </div>
+        </section>
+
+        <section
+            class="mega-menu-panel"
+            id="mega-pecas"
+            data-menu-panel="pecas"
+            aria-hidden="true"
+        >
+            <div class="mega-menu-header">
+                <h3 class="mega-menu-title">PE&Ccedil;AS</h3>
+                <button
+                    class="mega-close"
+                    aria-label="Fechar menu de pe&ccedil;as"
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="mega-grid mega-grid-pecas">
+                <a
+                    href="pecas/bombas-hidraulicas.html"
+                    class="mega-card mega-card-horizontal"
+                >
+                    <img
+                        src="assets/icons/bombas.webp"
+                        alt="Bombas hidr&aacute;ulicas"
+                        loading="lazy"
+                    />
+                    <span>BOMBAS HIDR&Aacute;ULICAS</span>
+                </a>
+                <a
+                    href="pecas/valvulas-hidraulicas.html"
+                    class="mega-card mega-card-horizontal"
+                >
+                    <img
+                        src="assets/icons/valvulas.webp"
+                        alt="V&aacute;lvulas hidr&aacute;ulicas"
+                        loading="lazy"
+                    />
+                    <span>V&Aacute;LVULAS HIDR&Aacute;ULICAS</span>
+                </a>
+                <a
+                    href="pecas/gaxetas-e-vedacoes.html"
+                    class="mega-card mega-card-horizontal"
+                >
+                    <img
+                        src="assets/icons/gaxetas.webp"
+                        alt="Gaxetas e veda&ccedil;&otilde;es"
+                        loading="lazy"
+                    />
+                    <span>GAXETAS &amp; VEDA&Ccedil;&Otilde;ES</span>
+                </a>
+                <a
+                    href="pecas/isoladores-termicos.html"
+                    class="mega-card mega-card-horizontal"
+                >
+                    <img
+                        src="assets/icons/isoladores.webp"
+                        alt="Isoladores de calor"
+                        loading="lazy"
+                    />
+                    <span>ISOLADORES DE CALOR</span>
+                </a>
+                <div class="mega-card mega-card-wide">
+                    <span>DEMAIS COMPONENTES SOB CONSULTA</span>
+                </div>
+            </div>
+        </section>
+
+        <a
+            class="contato-wtzp"
+            href="https://wa.me/5516991265833?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20m%C3%A1quinas%20da%20ALS%20m%C3%A1quinas"
+            target="_blank"
+            rel="noopener"
+            aria-label="Abrir contato no WhatsApp"
+        >
+            <img src="assets/imgs/contato.svg" alt="WhatsApp" loading="lazy" />
+        </a>
+
+        <main id="conteudo-principal">
+            <section
+                class="catalog-hero"
+                data-catalog-hero
+                aria-label="Destaques do cat&aacute;logo ALS"
+            >
+                <div class="catalog-hero-stage" aria-live="polite">
+                    <article
+                        class="catalog-hero-slide active"
+                        data-hero-slide
+                        data-hero-category="Todas"
+                        aria-hidden="false"
+                    >
+                        <div class="catalog-hero-content">
+                            <div class="catalog-hero-main">
+                                <nav
+                                    class="catalog-breadcrumb"
+                                    aria-label="Localiza&ccedil;&atilde;o"
+                                >
+                                    <a href="index.html">In&iacute;cio</a>
+                                    <span>/</span>
+                                    <span>Cat&aacute;logo</span>
+                                </nav>
+                                <h1>
+                                    <span>M&aacute;quinas industriais</span> sob
+                                    consulta para processos de borracha.
+                                </h1>
+                                <p class="catalog-hero-copy">
+                                    Explore linhas, selecione equipamentos e
+                                    envie sua demanda para
+                                    valida&ccedil;&atilde;o t&eacute;cnica com a
+                                    equipe ALS.
+                                </p>
+                                <div class="catalog-hero-actions">
+                                    <button
+                                        class="catalog-hero-btn primary"
+                                        type="button"
+                                        data-hero-cta
+                                        data-hero-category="Todas"
+                                    >
+                                        Solicitar or&ccedil;amento
+                                    </button>
+                                    <a
+                                        class="catalog-hero-btn ghost"
+                                        href="#catalog-main"
+                                        aria-label="Ir para o cat&aacute;logo"
+                                    >
+                                        <img
+                                            src="assets/icons/seta-baixo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="catalog-hero-visual" aria-hidden="true">
+                                <img
+                                    src="assets/imgs/hero-als-catalogo.webp"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="catalog-hero-slide"
+                        data-hero-slide
+                        data-hero-category="Prensas Hidr&aacute;ulicas"
+                        aria-hidden="true"
+                        inert
+                    >
+                        <div class="catalog-hero-content">
+                            <div class="catalog-hero-main">
+                                <nav
+                                    class="catalog-breadcrumb"
+                                    aria-label="Localiza&ccedil;&atilde;o"
+                                >
+                                    <a href="index.html">In&iacute;cio</a>
+                                    <span>/</span>
+                                    <span>Cat&aacute;logo</span>
+                                </nav>
+                                <h1>
+                                    <span>Prensas hidr&aacute;ulicas</span> para
+                                    for&ccedil;a, estabilidade e produtividade.
+                                </h1>
+                                <p class="catalog-hero-copy">
+                                    Equipamentos sob consulta para
+                                    opera&ccedil;&otilde;es que exigem
+                                    desempenho cont&iacute;nuo e alta
+                                    confiabilidade.
+                                </p>
+                                <div class="catalog-hero-actions">
+                                    <button
+                                        class="catalog-hero-btn primary"
+                                        type="button"
+                                        data-hero-cta
+                                        data-hero-category="Prensas Hidr&aacute;ulicas"
+                                    >
+                                        Ver prensas
+                                    </button>
+                                    <a
+                                        class="catalog-hero-btn ghost"
+                                        href="#catalog-main"
+                                        aria-label="Ir para o cat&aacute;logo"
+                                    >
+                                        <img
+                                            src="assets/icons/seta-baixo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="catalog-hero-visual" aria-hidden="true">
+                                <img
+                                    src="assets/imgs/catalogo-hero-als.webp"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="catalog-hero-slide"
+                        data-hero-slide
+                        data-hero-category="Misturadores"
+                        aria-hidden="true"
+                        inert
+                    >
+                        <div class="catalog-hero-content">
+                            <div class="catalog-hero-main">
+                                <nav
+                                    class="catalog-breadcrumb"
+                                    aria-label="Localiza&ccedil;&atilde;o"
+                                >
+                                    <a href="index.html">In&iacute;cio</a>
+                                    <span>/</span>
+                                    <span>Cat&aacute;logo</span>
+                                </nav>
+                                <h1>
+                                    <span>Misturadores industriais</span> para
+                                    rendimento e consist&ecirc;ncia.
+                                </h1>
+                                <p class="catalog-hero-copy">
+                                    Solu&ccedil;&otilde;es para processos que
+                                    dependem de mistura est&aacute;vel, controle
+                                    operacional e produtividade.
+                                </p>
+                                <div class="catalog-hero-actions">
+                                    <button
+                                        class="catalog-hero-btn primary"
+                                        type="button"
+                                        data-hero-cta
+                                        data-hero-category="Misturadores"
+                                    >
+                                        Ver misturadores
+                                    </button>
+                                    <a
+                                        class="catalog-hero-btn ghost"
+                                        href="#catalog-main"
+                                        aria-label="Ir para o cat&aacute;logo"
+                                    >
+                                        <img
+                                            src="assets/icons/seta-baixo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="catalog-hero-visual" aria-hidden="true">
+                                <img
+                                    src="assets/imgs/hero-misturadores.webp"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="catalog-hero-slide"
+                        data-hero-slide
+                        data-hero-category="Pe&ccedil;as e Componentes"
+                        aria-hidden="true"
+                        inert
+                    >
+                        <div class="catalog-hero-content">
+                            <div class="catalog-hero-main">
+                                <nav
+                                    class="catalog-breadcrumb"
+                                    aria-label="Localiza&ccedil;&atilde;o"
+                                >
+                                    <a href="index.html">In&iacute;cio</a>
+                                    <span>/</span>
+                                    <span>Cat&aacute;logo</span>
+                                </nav>
+                                <h1>
+                                    <span>Pe&ccedil;as industriais</span> para
+                                    reposi&ccedil;&atilde;o e continuidade
+                                    operacional.
+                                </h1>
+                                <p class="catalog-hero-copy">
+                                    Componentes para manuten&ccedil;&atilde;o,
+                                    compatibilidade t&eacute;cnica e suporte
+                                    &agrave; rotina produtiva.
+                                </p>
+                                <div class="catalog-hero-actions">
+                                    <button
+                                        class="catalog-hero-btn primary"
+                                        type="button"
+                                        data-hero-cta
+                                        data-hero-category="Pe&ccedil;as e Componentes"
+                                    >
+                                        Ver componentes
+                                    </button>
+                                    <a
+                                        class="catalog-hero-btn ghost"
+                                        href="#catalog-main"
+                                        aria-label="Ir para o cat&aacute;logo"
+                                    >
+                                        <img
+                                            src="assets/icons/seta-baixo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="catalog-hero-visual" aria-hidden="true">
+                                <img
+                                    src="assets/imgs/catalogo-componentes-hero.webp"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div
+                    class="catalog-hero-nav"
+                    aria-label="Navega&ccedil;&atilde;o da hero do cat&aacute;logo"
+                >
+                    <div
+                        class="catalog-hero-tabs"
+                        role="tablist"
+                        aria-label="Linhas do cat&aacute;logo"
+                    >
+                        <button
+                            class="catalog-hero-tab active"
+                            type="button"
+                            data-hero-tab="0"
+                            role="tab"
+                            aria-selected="true"
+                            style="
+                                --thumb-bg: url(&quot;/assets/imgs/catalogo-als-bg.webp&quot;);
+                            "
+                        >
+                            <span class="catalog-hero-tab-progress"
+                                ><span></span
+                            ></span>
+                            <strong>Cat&aacute;logo ALS</strong>
+                        </button>
+                        <button
+                            class="catalog-hero-tab"
+                            type="button"
+                            data-hero-tab="1"
+                            role="tab"
+                            aria-selected="false"
+                            style="
+                                --thumb-bg: url(&quot;/assets/imgs/catalogo-prensas-bg.webp&quot;);
+                            "
+                        >
+                            <span class="catalog-hero-tab-progress"
+                                ><span></span
+                            ></span>
+                            <strong>Prensas HIDRÁULICAS</strong>
+                        </button>
+                        <button
+                            class="catalog-hero-tab catalog-hero-tab-bottom"
+                            type="button"
+                            data-hero-tab="2"
+                            role="tab"
+                            aria-selected="false"
+                            style="
+                                --thumb-bg: url(&quot;/assets/imgs/catalogo-misturadores-bg.webp&quot;);
+                            "
+                        >
+                            <span class="catalog-hero-tab-progress"
+                                ><span></span
+                            ></span>
+                            <strong>Misturadores</strong>
+                        </button>
+                        <button
+                            class="catalog-hero-tab"
+                            type="button"
+                            data-hero-tab="3"
+                            role="tab"
+                            aria-selected="false"
+                            style="
+                                --thumb-bg: url(&quot;/assets/imgs/catalogo-componentes-bg.webp&quot;);
+                            "
+                        >
+                            <span class="catalog-hero-tab-progress"
+                                ><span></span
+                            ></span>
+                            <strong>Componentes</strong>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="catalog-main"
+                id="catalog-main"
+                aria-labelledby="catalog-title"
+            >
+                <div class="catalog-results-head">
+                    <h2 id="catalog-title">
+                        <span>M&aacute;quinas</span> &amp; Pe&ccedil;as
+                    </h2>
+                    <span class="catalog-count" data-catalog-count
+                        >Carregando equipamentos</span
+                    >
+                </div>
+
+                <div class="catalog-toolbar">
+                    <label class="catalog-search">
+                        <span class="sr-only">Buscar m&aacute;quina</span>
+                        <span class="catalog-search-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path
+                                    d="M10.8 18.2a7.4 7.4 0 1 1 0-14.8 7.4 7.4 0 0 1 0 14.8Zm5.4-1.7 4.4 4.4"
+                                />
+                            </svg>
+                        </span>
+                        <input
+                            type="search"
+                            placeholder="Buscar por nome ou aplica&ccedil;&atilde;o"
+                            data-catalog-search
+                        />
+                    </label>
+                    <div
+                        class="catalog-category-field"
+                        data-catalog-category-select
+                    >
+                        <span class="catalog-filter-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path
+                                    d="M5 6.5V12l6.7 6.7a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8L12 5H6.5A1.5 1.5 0 0 0 5 6.5Z"
+                                />
+                                <path d="M8.8 8.8h.1" />
+                            </svg>
+                        </span>
+                        <input type="hidden" data-catalog-category-input />
+                        <button
+                            class="catalog-select-trigger"
+                            type="button"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                            data-catalog-category-trigger
+                        >
+                            <span data-catalog-category-label
+                                >Todas categorias</span
+                            >
+                            <span
+                                class="catalog-select-icon"
+                                aria-hidden="true"
+                            >
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="m7 9.5 5 5 5-5" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div
+                            class="catalog-select-menu"
+                            role="listbox"
+                            data-catalog-filters
+                            aria-label="Filtros por categoria"
+                            hidden
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="catalog-layout">
+                    <div>
+                        <div class="catalog-state active" data-catalog-loading>
+                            <strong>Carregando cat&aacute;logo</strong>
+                            <p>
+                                Preparando os equipamentos dispon&iacute;veis
+                                para consulta.
+                            </p>
+                        </div>
+
+                        <div class="catalog-state" data-catalog-empty>
+                            <strong>Nenhum equipamento encontrado</strong>
+                            <p>
+                                Ajuste os filtros ou fale com a equipe ALS para
+                                uma consulta sob demanda.
+                            </p>
+                        </div>
+
+                        <div class="catalog-state" data-catalog-error>
+                            <strong
+                                >N&atilde;o foi poss&iacute;vel carregar o
+                                cat&aacute;logo</strong
+                            >
+                            <p>
+                                Tente novamente ou entre em contato pelo
+                                WhatsApp.
+                            </p>
+                        </div>
+
+                        <div class="catalog-grid" data-catalog-grid></div>
+                    </div>
+
+                    <aside class="quote-panel" aria-labelledby="quote-title">
+                        <div class="quote-panel-head">
+                            <div>
+                                <span class="quote-eyebrow">
+                                    <span class="quote-cart-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 64 64" focusable="false">
+                                            <path d="M8 10h9.4a4 4 0 0 1 3.9 3.2L22.5 19H54a4 4 0 0 1 3.9 4.8l-4.7 22A5 5 0 0 1 48.3 50H25.2a5 5 0 0 1-4.9-4L14 16H8a3 3 0 0 1 0-6Zm17.1 34h22.2l3.9-19H23.8l1.3 19ZM25 60a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm23 0a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" />
+                                        </svg>
+                                    </span>
+                                    Carrinho
+                                </span>
+                                <h2 id="quote-title">Resumo dos produtos</h2>
+                            </div>
+                            <button
+                                class="quote-clear-link"
+                                type="button"
+                                data-quote-clear
+                                hidden
+                            >
+                                Limpar
+                            </button>
+                        </div>
+                        <div class="quote-items" data-quote-items></div>
+                        <div class="quote-summary">
+                            <div>
+                                <span>Itens</span>
+                                <strong data-quote-count data-quote-count-format="number">0</strong>
+                            </div>
+                            <p>Or&ccedil;amento sob consulta</p>
+                        </div>
+                        <div class="quote-actions">
+                            <button
+                                class="catalog-btn primary quote-whatsapp-button"
+                                type="button"
+                                data-quote-whatsapp
+                                disabled
+                            >
+                                <span class="quote-whatsapp-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" focusable="false">
+                                        <path class="quote-whatsapp-bubble" d="M12 3.2a8.64 8.64 0 0 0-7.36 13.16l-.94 3.94 4.04-1.02A8.64 8.64 0 1 0 12 3.2Z" />
+                                        <path class="quote-whatsapp-phone" d="M8.54 7.24c-.34.08-.73.46-.98.98-.3.59-.32 1.47-.04 2.35.47 1.54 1.76 3.04 3.32 4.03 1.61 1.04 3.38 1.44 4.46 1.09.66-.22 1.21-.78 1.37-1.4l.17-.69a.62.62 0 0 0-.36-.76l-1.82-.84a.68.68 0 0 0-.94.24l-.58.78a.55.55 0 0 1-.65.16 7.27 7.27 0 0 1-2.96-2.86.54.54 0 0 1 .1-.66l.68-.6c.27-.23.34-.61.17-.92L9.52 7.6a.79.79 0 0 0-.98-.36Z" />
+                                    </svg>
+                                </span>
+                                Enviar carrinho
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <div
+                class="quote-fixed-bar"
+                data-quote-fixed-bar
+                hidden
+                aria-live="polite"
+            >
+                <div class="quote-fixed-inner">
+                    <div class="quote-fixed-count">
+                        <span>Itens no pedido</span>
+                        <strong class="quote-fixed-count-text" data-quote-count>0 itens</strong>
+                        <strong
+                            class="quote-fixed-count-badge"
+                            data-quote-count
+                            data-quote-count-format="number"
+                            aria-hidden="true"
+                            >0</strong
+                        >
+                    </div>
+                    <button
+                        class="catalog-btn primary quote-fixed-button"
+                        type="button"
+                        data-quote-whatsapp
+                        aria-label="Enviar carrinho pelo WhatsApp"
+                    >
+                        <span class="quote-fixed-cart-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" focusable="false">
+                                <path d="M8 10h9.4a4 4 0 0 1 3.9 3.2L22.5 19H54a4 4 0 0 1 3.9 4.8l-4.7 22A5 5 0 0 1 48.3 50H25.2a5 5 0 0 1-4.9-4L14 16H8a3 3 0 0 1 0-6Zm17.1 34h22.2l3.9-19H23.8l1.3 19ZM25 60a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm23 0a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" />
+                            </svg>
+                        </span>
+                        <span class="quote-whatsapp-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path class="quote-whatsapp-bubble" d="M12 3.2a8.64 8.64 0 0 0-7.36 13.16l-.94 3.94 4.04-1.02A8.64 8.64 0 1 0 12 3.2Z" />
+                                <path class="quote-whatsapp-phone" d="M8.54 7.24c-.34.08-.73.46-.98.98-.3.59-.32 1.47-.04 2.35.47 1.54 1.76 3.04 3.32 4.03 1.61 1.04 3.38 1.44 4.46 1.09.66-.22 1.21-.78 1.37-1.4l.17-.69a.62.62 0 0 0-.36-.76l-1.82-.84a.68.68 0 0 0-.94.24l-.58.78a.55.55 0 0 1-.65.16 7.27 7.27 0 0 1-2.96-2.86.54.54 0 0 1 .1-.66l.68-.6c.27-.23.34-.61.17-.92L9.52 7.6a.79.79 0 0 0-.98-.36Z" />
+                            </svg>
+                        </span>
+                        Enviar carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="catalog-footer-spacer"></div>
+            <div class="divisoria-footer" style="background: #f3f3f5">
+                <img src="assets/imgs/divisoria-footer.svg" alt="" />
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-top">
+                <img
+                    src="assets/imgs/logo-footer.svg"
+                    alt="ALS M&aacute;quinas"
+                    class="footer-logo"
+                />
+                <p class="footer-headline">
+                    <span>ALS M&aacute;quinas:</span> robustez, precis&atilde;o
+                    e confian&ccedil;a industrial.
+                </p>
+            </div>
+            <div class="footer-separator"></div>
+            <div class="footer-links">
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h3>Navega&ccedil;&atilde;o</h3>
+                        <a href="index.html">In&iacute;cio</a>
+                        <a href="catalogo.html">Cat&aacute;logo</a>
+                        <a href="index.html#maquinas"
+                            >M&aacute;quinas em A&ccedil;&atilde;o</a
+                        >
+                        <a href="index.html#servicos"
+                            >Servi&ccedil;os &amp; Solu&ccedil;&otilde;es</a
+                        >
+                        <a href="index.html#pecas">Pe&ccedil;as</a>
+                        <a href="index.html#sobre">Sobre N&oacute;s</a>
+                    </div>
+                    <div class="footer-col">
+                        <h3>M&aacute;quinas</h3>
+                        <a href="portfolio.html">Nosso Portf&oacute;lio</a>
+                        <a href="maquinas/prensas-hidraulicas.html"
+                            >Prensas Hidr&aacute;ulicas</a
+                        >
+                        <a href="maquinas/misturadores.html"
+                            >Misturadores de Borracha</a
+                        >
+                        <a href="maquinas/raspadores-de-borracha.html"
+                            >Batedores de Raspa</a
+                        >
+                        <a href="maquinas/guilhotinas.html">Guilhotinas</a>
+                        <a href="maquinas/unidades-hidraulicas.html"
+                            >Unidades hidr&aacute;ulicas</a
+                        >
+                    </div>
+                    <div class="footer-col">
+                        <h3>Pe&ccedil;as</h3>
+                        <a href="pecas/bombas-hidraulicas.html"
+                            >Bombas Hidr&aacute;ulicas</a
+                        >
+                        <a href="pecas/valvulas-hidraulicas.html"
+                            >V&aacute;lvulas Hidr&aacute;ulicas</a
+                        >
+                        <a href="pecas/gaxetas-e-vedacoes.html"
+                            >Gaxetas &amp; Veda&ccedil;&otilde;es</a
+                        >
+                        <a href="pecas/isoladores-termicos.html"
+                            >Isoladores de Calor</a
+                        >
+                    </div>
+                    <div class="footer-col">
+                        <h3>Institucional</h3>
+                        <a href="institucionais/politica-de-privacidade.html"
+                            >Pol&iacute;tica de Privacidade</a
+                        >
+                        <a href="institucionais/termos-de-usu.html"
+                            >Termos de Uso</a
+                        >
+                        <a href="institucionais/politica-de-cookies.html"
+                            >Pol&iacute;tica de Cookies</a
+                        >
+                        <a href="institucionais/politica-de-reembolso.html"
+                            >Pol&iacute;tica de Reembolso</a
+                        >
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contato &amp; Localiza&ccedil;&atilde;o</h3>
+                        <a
+                            href="https://wa.me/5516991265833?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20m%C3%A1quinas%20da%20ALS%20m%C3%A1quinas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >WhatsApp</a
+                        >
+                        <a
+                            href="https://www.facebook.com/alsmaquinasfranca"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Facebook</a
+                        >
+                        <a
+                            href="mailto:alsmaquinas@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >E-mail</a
+                        >
+                        <p class="footer-label">Endere&ccedil;o:</p>
+                        <p class="footer-meta">
+                            R. Mario David, 1019 - Jardim<br />Roselandia,
+                            Franca - SP
+                        </p>
+                        <p class="footer-label">
+                            Hor&aacute;rio de atendimento:
+                        </p>
+                        <p class="footer-meta">
+                            Segunda a s&aacute;bado, das 7h<br />&agrave;s 18h
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <span
+                        >&copy; 2026 ALS M&aacute;quinas para Borracha. Todos os
+                        direitos reservados.</span
+                    >
+                    <span>Site desenvolvido por <a href="https://mercoestudio.com.br/" target="_blank" rel="noopener noreferrer"><strong>Merco</strong></a></span>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+        <script src="js/config/runtime-config.generated.js"></script>
+        <script src="js/catalogo/catalogo-normalizer.js"></script>
+        <script src="js/catalogo/catalogo-cms.js"></script>
+        <script src="js/catalogo/catalogo-data.generated.js"></script>
+        <script src="js/catalogo/orcamento-lista.js"></script>
+        <script src="js/catalogo/catalogo.js"></script>
+    </body>
+</html>

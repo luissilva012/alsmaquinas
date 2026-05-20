@@ -1,92 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://alsmaquinas.com.br/</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/orcamento</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/portfolio</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/maquinas/prensas-hidraulicas</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/maquinas/misturadores</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/maquinas/guilhotinas</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/maquinas/unidades-hidraulicas</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/maquinas/raspadores-de-borracha</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/pecas/bombas-hidraulicas</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/pecas/valvulas-hidraulicas</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/pecas/gaxetas-e-vedacoes</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/pecas/isoladores-termicos</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/institucionais/politica-de-privacidade</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/institucionais/termos-de-usu</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/institucionais/politica-de-cookies</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://alsmaquinas.com.br/institucionais/politica-de-reembolso</loc>
-  <lastmod>2026-02-05T18:23:39+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://alsmaquinas.com.br/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/orcamento.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/portfolio.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/maquinas/prensas-hidraulicas.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/maquinas/misturadores.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/maquinas/guilhotinas.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/maquinas/unidades-hidraulicas.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/maquinas/raspadores-de-borracha.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/pecas/bombas-hidraulicas.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/pecas/valvulas-hidraulicas.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/pecas/gaxetas-e-vedacoes.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/pecas/isoladores-termicos.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/institucionais/politica-de-privacidade.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/institucionais/termos-de-usu.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/institucionais/politica-de-cookies.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/institucionais/politica-de-reembolso.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/misturador-de-borracha-75cv/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/prensa-hidraulica-100-toneladas/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/valvula-hidraulica-alta-pressao/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/unidade-hidraulica-compacta/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/raspador-de-borracha-industrial/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

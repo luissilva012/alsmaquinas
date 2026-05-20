@@ -1,0 +1,2184 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>ALS M&aacute;quinas | Painel Administrativo</title>
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/admin/admin.css" />
+        <link
+            rel="shortcut icon"
+            href="../assets/icons/favicon.svg"
+            type="image/x-icon"
+        />
+    </head>
+
+    <body class="admin-page">
+        <main>
+            <section class="admin-login" data-admin-login hidden>
+                <div class="admin-login-panel">
+                    <div class="admin-login-card">
+                        <img
+                            class="admin-login-logo"
+                            src="../assets/imgs/logo-footer.svg"
+                            alt="ALS M&aacute;quinas"
+                        />
+                        <div>
+                            <h2>Acesso administrativo</h2>
+                        </div>
+
+                        <form class="admin-form" data-login-form>
+                            <div class="admin-field">
+                                <label for="admin-email">E-mail</label>
+                                <input
+                                    id="admin-email"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="username"
+                                    placeholder="email@email.com"
+                                />
+                            </div>
+                            <div class="admin-field">
+                                <label for="admin-password">Senha</label>
+                                <div class="admin-password-field">
+                                    <input
+                                        id="admin-password"
+                                        name="password"
+                                        type="password"
+                                        autocomplete="current-password"
+                                        placeholder="senha#123"
+                                    />
+                                    <button
+                                        class="admin-password-toggle"
+                                        type="button"
+                                        aria-label="Mostrar senha"
+                                        aria-pressed="false"
+                                        data-password-toggle
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M2.8 12s3.2-5.2 9.2-5.2S21.2 12 21.2 12s-3.2 5.2-9.2 5.2S2.8 12 2.8 12Z"
+                                            />
+                                            <circle cx="12" cy="12" r="2.5" />
+                                            <path
+                                                class="admin-password-slash"
+                                                d="M19.5 4.5 4.5 19.5"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="admin-message" data-login-message></div>
+                            <button class="admin-btn primary" type="submit">
+                                Entrar no painel
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="admin-shell" data-admin-shell hidden>
+                <aside
+                    class="admin-sidebar"
+                    data-admin-sidebar
+                    aria-label="Navega&ccedil;&atilde;o administrativa"
+                >
+                    <div class="admin-brand">
+                        <img
+                            src="../assets/imgs/logo-header.svg"
+                            alt="ALS M&aacute;quinas"
+                        />
+                        <span>PAINEL ADMINISTRATIVO</span>
+                    </div>
+
+                    <nav class="admin-nav">
+                        <button
+                            class="admin-nav-item active"
+                            type="button"
+                            data-view-target="inicio"
+                            aria-label="In&iacute;cio"
+                        >
+                            <span
+                                class="admin-nav-icon home-icon"
+                                aria-hidden="true"
+                            >
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path
+                                        d="M3.2 10.7 9.7 4.2a3.3 3.3 0 0 1 4.6 0l6.5 6.5c.8.8 1.2 1.8 1.2 3V18a3.5 3.5 0 0 1-3.5 3.5h-2.9a1.2 1.2 0 0 1-1.2-1.2V16a2.4 2.4 0 0 0-4.8 0v4.3a1.2 1.2 0 0 1-1.2 1.2H5.5A3.5 3.5 0 0 1 2 18v-4.3c0-1.2.4-2.2 1.2-3Z"
+                                    />
+                                </svg>
+                            </span>
+                            <span>In&iacute;cio</span>
+                        </button>
+                        <button
+                            class="admin-nav-item"
+                            type="button"
+                            data-view-target="cadastrar"
+                            aria-label="Cadastrar m&aacute;quina"
+                        >
+                            <span class="admin-nav-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path
+                                        d="M5 3h9.8A3.2 3.2 0 0 1 18 6.2v5.4c-.9.1-1.7.6-2.2 1.4L12.2 19c-.3.5-.5 1.1-.5 1.7V21H5.5A2.5 2.5 0 0 1 3 18.5v-13A2.5 2.5 0 0 1 5.5 3H5Zm2.2 5.3a1.2 1.2 0 0 0 0 2.4h6.6a1.2 1.2 0 0 0 0-2.4H7.2Zm0 4.5a1.2 1.2 0 0 0 0 2.4h4.4a1.2 1.2 0 0 0 0-2.4H7.2Zm0 4.5a1.2 1.2 0 0 0 0 2.4h2.6a1.2 1.2 0 0 0 0-2.4H7.2Z"
+                                    />
+                                    <path
+                                        d="M17.2 14.3a1.6 1.6 0 0 1 2.2-.6l.6.4a1.6 1.6 0 0 1 .6 2.2l-3.4 5.6c-.2.3-.4.5-.7.7l-1.5.9a.9.9 0 0 1-1.3-.8l.1-1.8c0-.3.1-.7.3-1l3.1-5.6Z"
+                                    />
+                                </svg>
+                            </span>
+                            <span>Cadastrar M&aacute;quina</span>
+                        </button>
+                        <button
+                            class="admin-nav-item"
+                            type="button"
+                            data-view-target="maquinas"
+                            aria-label="M&aacute;quinas"
+                        >
+                            <span class="admin-nav-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <g transform="translate(0 -1.7)">
+                                        <path
+                                            d="M6.1 5.2h2.2l.3 1.2.9.4 1.2-.7 1.6 1.6-.7 1.2.4.9 1.2.3v2.2l-1.2.3-.4.9.7 1.2-1.6 1.6-1.2-.7-.9.4-.3 1.2H6.1L5.8 16l-.9-.4-1.2.7-1.6-1.6.7-1.2-.4-.9-1.2-.3v-2.2l1.2-.3.4-.9-.7-1.2 1.6-1.6 1.2.7.9-.4.3-1.2Zm1.1 8.9a2.7 2.7 0 1 0 0-5.4 2.7 2.7 0 0 0 0 5.4Z"
+                                        />
+                                        <path
+                                            d="M17.5 6.7h1.8l.2.9.7.3.8-.5 1.3 1.3-.5.8.3.7.9.2v1.8l-.9.2-.3.7.5.8-1.3 1.3-.8-.5-.7.3-.2.9h-1.8l-.2-.9-.7-.3-.8.5-1.3-1.3.5-.8-.3-.7-.9-.2v-1.8l.9-.2.3-.7-.5-.8 1.3-1.3.8.5.7-.3.2-.9Zm.9 6.3a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z"
+                                        />
+                                        <path
+                                            d="M12.2 17h1.6l.2.8.6.3.8-.4 1.1 1.1-.4.8.3.6.8.2V22l-.8.2-.3.6.4.8-1.1 1.1-.8-.4-.6.3-.2.8h-1.6l-.2-.8-.6-.3-.8.4-1.1-1.1.4-.8-.3-.6-.8-.2v-1.6l.8-.2.3-.6-.4-.8 1.1-1.1.8.4.6-.3.2-.8Zm.8 5.6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+                                        />
+                                    </g>
+                                </svg>
+                            </span>
+                            <span>M&aacute;quinas</span>
+                        </button>
+                        <button
+                            class="admin-nav-item"
+                            type="button"
+                            data-view-target="categorias"
+                            aria-label="Categorias"
+                        >
+                            <span class="admin-nav-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <circle cx="6" cy="6.5" r="2.2" />
+                                    <rect
+                                        x="10"
+                                        y="4.7"
+                                        width="10"
+                                        height="3.6"
+                                        rx="1.8"
+                                    />
+                                    <circle cx="6" cy="12" r="2.2" />
+                                    <rect
+                                        x="10"
+                                        y="10.2"
+                                        width="10"
+                                        height="3.6"
+                                        rx="1.8"
+                                    />
+                                    <circle cx="6" cy="17.5" r="2.2" />
+                                    <rect
+                                        x="10"
+                                        y="15.7"
+                                        width="10"
+                                        height="3.6"
+                                        rx="1.8"
+                                    />
+                                </svg>
+                            </span>
+                            <span>Categorias</span>
+                        </button>
+                        <button
+                            class="admin-nav-item"
+                            type="button"
+                            data-view-target="configuracoes"
+                            aria-label="Configura&ccedil;&otilde;es"
+                        >
+                            <span
+                                class="admin-nav-icon stroke-icon"
+                                aria-hidden="true"
+                            >
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M4 8h8" />
+                                    <path d="M16 8h4" />
+                                    <circle cx="14" cy="8" r="2" />
+                                    <path d="M4 16h3" />
+                                    <path d="M11 16h9" />
+                                    <circle cx="9" cy="16" r="2" />
+                                </svg>
+                            </span>
+                            <span>Configura&ccedil;&otilde;es</span>
+                        </button>
+                        <button
+                            class="admin-nav-more"
+                            type="button"
+                            data-mobile-actions-toggle
+                            aria-label="Mais a&ccedil;&otilde;es"
+                            aria-expanded="false"
+                        >
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </nav>
+
+                    <div class="admin-sidebar-footer">
+                        <a class="admin-btn catalog" href="../catalogo.html">
+                            <span class="admin-btn-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path
+                                        d="M7 5h12v12h-2V8.4l-9.3 9.3-1.4-1.4L15.6 7H7V5ZM5 7h2v10h10v2H5V7Z"
+                                    />
+                                </svg>
+                            </span>
+                            Ver Cat&aacute;logo
+                        </a>
+                        <button
+                            class="admin-btn danger"
+                            type="button"
+                            data-admin-logout
+                        >
+                            <span class="admin-btn-content">
+                                <span class="admin-btn-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" focusable="false">
+                                        <path
+                                            d="M5 4h8v2H7v12h6v2H5V4Zm10.8 4.2 4.8 4.8-4.8 4.8-1.4-1.4 2.4-2.4H10v-2h6.8l-2.4-2.4 1.4-1.4Z"
+                                        />
+                                    </svg>
+                                </span>
+                                Sair
+                            </span>
+                        </button>
+                    </div>
+                </aside>
+
+                <div class="admin-content">
+                    <section
+                        class="admin-view active"
+                        data-admin-view="inicio"
+                        aria-labelledby="inicio-title"
+                    >
+                        <div class="admin-page-head">
+                            <div>
+                                <span class="admin-eyebrow"
+                                    >PAINEL ADMINISTRATIVO</span
+                                >
+                                <h1 id="inicio-title">In&iacute;cio</h1>
+                                <p>
+                                    Resumo operacional do cat&aacute;logo
+                                    digital da ALS M&aacute;quinas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="admin-metrics" data-admin-metrics></div>
+
+                        <div class="admin-dashboard-grid admin-chart-grid">
+                            <section
+                                class="admin-panel admin-chart-panel"
+                                aria-labelledby="status-chart-title"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2 id="status-chart-title">
+                                            Distribui&ccedil;&atilde;o por
+                                            status
+                                        </h2>
+                                        <p data-status-chart-summary></p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div class="admin-chart-box">
+                                        <canvas
+                                            data-status-chart
+                                            aria-label="Distribui&ccedil;&atilde;o de m&aacute;quinas por status"
+                                            role="img"
+                                        ></canvas>
+                                        <div
+                                            class="admin-chart-empty"
+                                            data-status-chart-empty
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section
+                                class="admin-panel admin-chart-panel"
+                                aria-labelledby="category-chart-title"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2 id="category-chart-title">
+                                            M&aacute;quinas por categoria
+                                        </h2>
+                                        <p data-category-chart-summary></p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div class="admin-chart-box">
+                                        <canvas
+                                            data-category-chart
+                                            aria-label="Quantidade de m&aacute;quinas agrupadas por categoria"
+                                            role="img"
+                                        ></canvas>
+                                        <div
+                                            class="admin-chart-empty"
+                                            data-category-chart-empty
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div
+                            class="admin-grid-two admin-dashboard-actions-grid"
+                        >
+                            <section
+                                class="admin-panel admin-alert-panel"
+                                aria-labelledby="alerts-title"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2 id="alerts-title">
+                                            Alertas importantes
+                                        </h2>
+                                        <p>
+                                            Pontos que precisam de
+                                            aten&ccedil;&atilde;o no
+                                            cat&aacute;logo.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div
+                                        class="admin-alert-list"
+                                        data-admin-alerts
+                                    ></div>
+                                </div>
+                            </section>
+
+                            <section
+                                class="admin-panel admin-history-panel"
+                                aria-labelledby="history-title"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2 id="history-title">
+                                            Hist&oacute;rico
+                                        </h2>
+                                        <p>
+                                            &Uacute;ltimas m&aacute;quinas
+                                            cadastradas ou editadas.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div
+                                        class="admin-recent-list"
+                                        data-recent-machines
+                                    ></div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section
+                        class="admin-view"
+                        data-admin-view="cadastrar"
+                        aria-labelledby="machine-form-title"
+                    >
+                        <div class="admin-page-head">
+                            <div>
+                                <span class="admin-eyebrow">Cadastro</span>
+                                <h1 id="machine-form-title" data-form-title>
+                                    Cadastrar m&aacute;quina
+                                </h1>
+                                <p>
+                                    Preencha os dados comerciais e
+                                    t&eacute;cnicos do equipamento.
+                                </p>
+                            </div>
+                            <button
+                                class="admin-btn"
+                                type="button"
+                                data-view-target="maquinas"
+                            >
+                                Ver m&aacute;quinas
+                            </button>
+                        </div>
+
+                        <section class="admin-panel">
+                            <div class="admin-panel-body">
+                                <form
+                                    class="admin-form admin-machine-form"
+                                    data-machine-form
+                                >
+                                    <div class="admin-form-block">
+                                        <h2>Dados principais</h2>
+                                        <div class="admin-editor">
+                                            <div class="admin-field">
+                                                <label for="machine-name"
+                                                    >Nome da m&aacute;quina
+                                                    *</label
+                                                >
+                                                <input
+                                                    id="machine-name"
+                                                    name="name"
+                                                    type="text"
+                                                    placeholder="Ex: Prensa Hidr&aacute;ulica 100 Toneladas"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="machine-slug"
+                                                    >Slug</label
+                                                >
+                                                <input
+                                                    id="machine-slug"
+                                                    name="slug"
+                                                    type="text"
+                                                    placeholder="gerado automaticamente se vazio"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label
+                                                    id="machine-category-label"
+                                                    >Categoria *</label
+                                                >
+                                                <div
+                                                    class="admin-custom-select"
+                                                    data-category-select
+                                                >
+                                                    <input
+                                                        id="machine-category"
+                                                        name="category"
+                                                        type="hidden"
+                                                        data-category-input
+                                                    />
+                                                    <button
+                                                        class="admin-custom-select-trigger"
+                                                        id="machine-category-trigger"
+                                                        type="button"
+                                                        aria-haspopup="listbox"
+                                                        aria-expanded="false"
+                                                        aria-labelledby="machine-category-label machine-category-value"
+                                                        data-category-trigger
+                                                    >
+                                                        <span
+                                                            id="machine-category-value"
+                                                            data-category-label
+                                                            >Selecione...</span
+                                                        >
+                                                        <span
+                                                            class="admin-custom-select-icon"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                focusable="false"
+                                                            >
+                                                                <path
+                                                                    d="m7 9.5 5 5 5-5"
+                                                                />
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div
+                                                        class="admin-custom-select-menu"
+                                                        id="machine-category-list"
+                                                        role="listbox"
+                                                        aria-labelledby="machine-category-label"
+                                                        data-category-menu
+                                                        hidden
+                                                    ></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label id="machine-status-label"
+                                                    >Status comercial *</label
+                                                >
+                                                <div
+                                                    class="admin-custom-select"
+                                                    data-status-select
+                                                >
+                                                    <input
+                                                        id="machine-status"
+                                                        name="commercialStatus"
+                                                        type="hidden"
+                                                        data-status-input
+                                                    />
+                                                    <button
+                                                        class="admin-custom-select-trigger"
+                                                        id="machine-status-trigger"
+                                                        type="button"
+                                                        aria-haspopup="listbox"
+                                                        aria-expanded="false"
+                                                        aria-labelledby="machine-status-label machine-status-value"
+                                                        data-status-trigger
+                                                    >
+                                                        <span
+                                                            id="machine-status-value"
+                                                            data-status-label
+                                                            >Selecione...</span
+                                                        >
+                                                        <span
+                                                            class="admin-custom-select-icon"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                focusable="false"
+                                                            >
+                                                                <path
+                                                                    d="m7 9.5 5 5 5-5"
+                                                                />
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div
+                                                        class="admin-custom-select-menu"
+                                                        id="machine-status-list"
+                                                        role="listbox"
+                                                        aria-labelledby="machine-status-label"
+                                                        data-status-menu
+                                                        hidden
+                                                    ></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <label for="machine-short"
+                                                    >Descri&ccedil;&atilde;o
+                                                    curta *</label
+                                                >
+                                                <textarea
+                                                    id="machine-short"
+                                                    name="shortDescription"
+                                                    placeholder="Resumo para o card do cat&aacute;logo"
+                                                ></textarea>
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <label for="machine-full"
+                                                    >Descri&ccedil;&atilde;o
+                                                    completa</label
+                                                >
+                                                <textarea
+                                                    id="machine-full"
+                                                    name="fullDescription"
+                                                    placeholder="Texto completo para a p&aacute;gina de detalhes"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="admin-form-block">
+                                        <h2>Imagem e galeria</h2>
+                                        <p class="admin-form-help">
+                                            Adicione uma ou mais imagens do
+                                            produto. A primeira imagem da ordem
+                                            ser&aacute; usada como principal.
+                                        </p>
+                                        <div class="admin-image-manager">
+                                            <input
+                                                id="machine-image"
+                                                name="mainImageUrl"
+                                                type="hidden"
+                                                data-image-url
+                                            />
+                                            <textarea
+                                                id="machine-gallery"
+                                                name="galleryImageUrls"
+                                                data-gallery-urls
+                                                hidden
+                                            ></textarea>
+                                            <input
+                                                id="machine-file"
+                                                name="imageFile"
+                                                type="file"
+                                                accept="image/jpeg,image/png,image/jpg,image/webp"
+                                                multiple
+                                                data-image-file
+                                                hidden
+                                            />
+
+                                            <button
+                                                class="admin-upload-dropzone"
+                                                type="button"
+                                                data-upload-dropzone
+                                            >
+                                                <span
+                                                    class="admin-upload-icon"
+                                                    aria-hidden="true"
+                                                >
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        focusable="false"
+                                                    >
+                                                        <path d="M12 16V5" />
+                                                        <path
+                                                            d="m7.8 9.2 4.2-4.2 4.2 4.2"
+                                                        />
+                                                        <path
+                                                            d="M5 15.5v2.3A2.2 2.2 0 0 0 7.2 20h9.6A2.2 2.2 0 0 0 19 17.8v-2.3"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span>
+                                                    <strong
+                                                        >Adicionar
+                                                        imagens</strong
+                                                    >
+                                                    <small
+                                                        >Clique ou arraste PNG,
+                                                        JPG, JPEG ou
+                                                        WEBP.</small
+                                                    >
+                                                </span>
+                                            </button>
+
+                                            <div
+                                                class="admin-image-list"
+                                                data-image-list
+                                            ></div>
+                                            <div
+                                                class="admin-image-empty"
+                                                data-image-empty
+                                            >
+                                                Nenhuma imagem adicionada ainda.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="admin-image-lightbox"
+                                        data-image-lightbox
+                                        hidden
+                                    >
+                                        <button
+                                            class="admin-image-lightbox-close"
+                                            type="button"
+                                            aria-label="Fechar imagem"
+                                            data-image-lightbox-close
+                                        >
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                focusable="false"
+                                                aria-hidden="true"
+                                            >
+                                                <path d="M6 6l12 12" />
+                                                <path d="M18 6 6 18" />
+                                            </svg>
+                                        </button>
+                                        <figure>
+                                            <img
+                                                src=""
+                                                alt=""
+                                                data-image-lightbox-img
+                                            />
+                                            <figcaption
+                                                data-image-lightbox-caption
+                                            ></figcaption>
+                                        </figure>
+                                    </div>
+
+                                    <div class="admin-form-block">
+                                        <h2>
+                                            Especifica&ccedil;&otilde;es
+                                            t&eacute;cnicas
+                                        </h2>
+                                        <div class="admin-editor">
+                                            <div class="admin-field">
+                                                <label for="spec-modelo"
+                                                    >Modelo</label
+                                                >
+                                                <input
+                                                    id="spec-modelo"
+                                                    name="modelo"
+                                                    type="text"
+                                                    placeholder="Ex: ALS PH-100"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="spec-capacidade"
+                                                    >Capacidade /
+                                                    especifica&ccedil;&atilde;o
+                                                    principal</label
+                                                >
+                                                <input
+                                                    id="spec-capacidade"
+                                                    name="capacidade"
+                                                    type="text"
+                                                    placeholder="Ex: 100 toneladas, 1000 mm, 75 CV, 250 bar"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="spec-ano"
+                                                    >Ano</label
+                                                >
+                                                <input
+                                                    id="spec-ano"
+                                                    name="ano"
+                                                    type="number"
+                                                    min="1900"
+                                                    max="2100"
+                                                    step="1"
+                                                    inputmode="numeric"
+                                                    placeholder="Ex: 2024"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label id="spec-estado-label"
+                                                    >Estado</label
+                                                >
+                                                <div
+                                                    class="admin-custom-select"
+                                                    data-condition-select
+                                                >
+                                                    <input
+                                                        id="spec-estado"
+                                                        name="estado"
+                                                        type="hidden"
+                                                        data-condition-input
+                                                    />
+                                                    <button
+                                                        class="admin-custom-select-trigger"
+                                                        id="spec-estado-trigger"
+                                                        type="button"
+                                                        aria-haspopup="listbox"
+                                                        aria-expanded="false"
+                                                        aria-labelledby="spec-estado-label spec-estado-value"
+                                                        data-condition-trigger
+                                                    >
+                                                        <span
+                                                            id="spec-estado-value"
+                                                            data-condition-label
+                                                            >Selecione...</span
+                                                        >
+                                                        <span
+                                                            class="admin-custom-select-icon"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                focusable="false"
+                                                            >
+                                                                <path
+                                                                    d="m7 9.5 5 5 5-5"
+                                                                />
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div
+                                                        class="admin-custom-select-menu"
+                                                        id="spec-estado-list"
+                                                        role="listbox"
+                                                        aria-labelledby="spec-estado-label"
+                                                        data-condition-menu
+                                                        hidden
+                                                    ></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label
+                                                    id="spec-acionamento-label"
+                                                    >Acionamento</label
+                                                >
+                                                <div
+                                                    class="admin-custom-select"
+                                                    data-drive-select
+                                                >
+                                                    <input
+                                                        id="spec-acionamento"
+                                                        name="acionamento"
+                                                        type="hidden"
+                                                        data-drive-input
+                                                    />
+                                                    <button
+                                                        class="admin-custom-select-trigger"
+                                                        id="spec-acionamento-trigger"
+                                                        type="button"
+                                                        aria-haspopup="listbox"
+                                                        aria-expanded="false"
+                                                        aria-labelledby="spec-acionamento-label spec-acionamento-value"
+                                                        data-drive-trigger
+                                                    >
+                                                        <span
+                                                            id="spec-acionamento-value"
+                                                            data-drive-label
+                                                            >Selecione...</span
+                                                        >
+                                                        <span
+                                                            class="admin-custom-select-icon"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                focusable="false"
+                                                            >
+                                                                <path
+                                                                    d="m7 9.5 5 5 5-5"
+                                                                />
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div
+                                                        class="admin-custom-select-menu"
+                                                        id="spec-acionamento-list"
+                                                        role="listbox"
+                                                        aria-labelledby="spec-acionamento-label"
+                                                        data-drive-menu
+                                                        hidden
+                                                    ></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label id="spec-tensao-label"
+                                                    >Tens&atilde;o</label
+                                                >
+                                                <div
+                                                    class="admin-custom-select"
+                                                    data-voltage-select
+                                                >
+                                                    <input
+                                                        id="spec-tensao"
+                                                        name="tensao"
+                                                        type="hidden"
+                                                        data-voltage-input
+                                                    />
+                                                    <button
+                                                        class="admin-custom-select-trigger"
+                                                        id="spec-tensao-trigger"
+                                                        type="button"
+                                                        aria-haspopup="listbox"
+                                                        aria-expanded="false"
+                                                        aria-labelledby="spec-tensao-label spec-tensao-value"
+                                                        data-voltage-trigger
+                                                    >
+                                                        <span
+                                                            id="spec-tensao-value"
+                                                            data-voltage-label
+                                                            >Selecione...</span
+                                                        >
+                                                        <span
+                                                            class="admin-custom-select-icon"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <svg
+                                                                viewBox="0 0 24 24"
+                                                                focusable="false"
+                                                            >
+                                                                <path
+                                                                    d="m7 9.5 5 5 5-5"
+                                                                />
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div
+                                                        class="admin-custom-select-menu"
+                                                        id="spec-tensao-list"
+                                                        role="listbox"
+                                                        aria-labelledby="spec-tensao-label"
+                                                        data-voltage-menu
+                                                        hidden
+                                                    ></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="spec-dimensoes"
+                                                    >Dimens&otilde;es</label
+                                                >
+                                                <input
+                                                    id="spec-dimensoes"
+                                                    name="dimensoes"
+                                                    type="text"
+                                                    placeholder="Ex: 2,40 x 1,20 x 1,80 m"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="spec-peso-valor"
+                                                    >Peso</label
+                                                >
+                                                <div class="admin-unit-field">
+                                                    <input
+                                                        id="spec-peso-valor"
+                                                        name="pesoValor"
+                                                        type="number"
+                                                        min="0"
+                                                        step="0.01"
+                                                        inputmode="decimal"
+                                                        placeholder="0"
+                                                    />
+                                                    <div
+                                                        class="admin-custom-select admin-unit-select"
+                                                        data-weight-unit-select
+                                                    >
+                                                        <input
+                                                            id="spec-peso-unidade"
+                                                            name="pesoUnidade"
+                                                            type="hidden"
+                                                            data-weight-unit-input
+                                                        />
+                                                        <button
+                                                            class="admin-custom-select-trigger"
+                                                            id="spec-peso-unidade-trigger"
+                                                            type="button"
+                                                            aria-label="Unidade de peso"
+                                                            aria-haspopup="listbox"
+                                                            aria-expanded="false"
+                                                            aria-labelledby="spec-peso-unidade-value"
+                                                            data-weight-unit-trigger
+                                                        >
+                                                            <span
+                                                                id="spec-peso-unidade-value"
+                                                                data-weight-unit-label
+                                                                >kg</span
+                                                            >
+                                                            <span
+                                                                class="admin-custom-select-icon"
+                                                                aria-hidden="true"
+                                                            >
+                                                                <svg
+                                                                    viewBox="0 0 24 24"
+                                                                    focusable="false"
+                                                                >
+                                                                    <path
+                                                                        d="m7 9.5 5 5 5-5"
+                                                                    />
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                        <div
+                                                            class="admin-custom-select-menu"
+                                                            id="spec-peso-unidade-list"
+                                                            role="listbox"
+                                                            aria-label="Unidade de peso"
+                                                            data-weight-unit-menu
+                                                            hidden
+                                                        ></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <label for="spec-aplicacao"
+                                                    >Aplica&ccedil;&atilde;o</label
+                                                >
+                                                <textarea
+                                                    id="spec-aplicacao"
+                                                    name="aplicacao"
+                                                    placeholder="Ex: Vulcaniza&ccedil;&atilde;o, corte, mistura ou reposi&ccedil;&atilde;o industrial"
+                                                ></textarea>
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <label for="spec-observacoes"
+                                                    >Observa&ccedil;&otilde;es
+                                                    t&eacute;cnicas</label
+                                                >
+                                                <textarea
+                                                    id="spec-observacoes"
+                                                    name="observacoes"
+                                                    placeholder="Ex: Equipamento revisado, acompanha painel ou requer valida&ccedil;&atilde;o t&eacute;cnica"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="admin-form-block">
+                                        <h2>Disponibilidade</h2>
+                                        <div class="admin-editor">
+                                            <div class="admin-field">
+                                                <label for="quantity-available"
+                                                    >Quantidade
+                                                    dispon&iacute;vel</label
+                                                >
+                                                <input
+                                                    id="quantity-available"
+                                                    name="quantityAvailable"
+                                                    type="number"
+                                                    min="0"
+                                                    step="1"
+                                                    value="0"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="quantity-reserved"
+                                                    >Quantidade reservada</label
+                                                >
+                                                <input
+                                                    id="quantity-reserved"
+                                                    name="quantityReserved"
+                                                    type="number"
+                                                    min="0"
+                                                    step="1"
+                                                    value="0"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field">
+                                                <label for="minimum-stock"
+                                                    >Estoque
+                                                    m&iacute;nimo</label
+                                                >
+                                                <input
+                                                    id="minimum-stock"
+                                                    name="minimumStock"
+                                                    type="number"
+                                                    min="0"
+                                                    step="1"
+                                                    value="0"
+                                                />
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <span class="admin-label"
+                                                    >Configura&ccedil;&otilde;es</span
+                                                >
+                                                <div class="admin-checks">
+                                                    <label class="admin-check">
+                                                        <input
+                                                            name="active"
+                                                            type="checkbox"
+                                                            checked
+                                                        />
+                                                        Ativa no cat&aacute;logo
+                                                    </label>
+                                                    <label class="admin-check">
+                                                        <input
+                                                            name="featured"
+                                                            type="checkbox"
+                                                        />
+                                                        <span>
+                                                            Marcar como destaque
+                                                            <small
+                                                                >Aparece com
+                                                                prioridade no
+                                                                cat&aacute;logo.</small
+                                                            >
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="admin-field wide">
+                                                <label for="internal-note"
+                                                    >Observa&ccedil;&atilde;o
+                                                    interna</label
+                                                >
+                                                <textarea
+                                                    id="internal-note"
+                                                    name="internalNote"
+                                                    placeholder="Vis&iacute;vel apenas para o administrador futuramente"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="admin-message"
+                                        data-form-message
+                                    ></div>
+
+                                    <div
+                                        class="admin-form-actions admin-machine-form-actions"
+                                    >
+                                        <button
+                                            class="admin-btn"
+                                            type="button"
+                                            data-cancel-edit
+                                        >
+                                            Cancelar
+                                        </button>
+                                        <button
+                                            class="admin-btn primary"
+                                            type="submit"
+                                        >
+                                            Salvar m&aacute;quina
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </section>
+
+                    <section
+                        class="admin-view"
+                        data-admin-view="maquinas"
+                        aria-labelledby="machines-title"
+                    >
+                        <div class="admin-page-head">
+                            <div>
+                                <span class="admin-eyebrow">Gerenciamento</span>
+                                <h1 id="machines-title">M&aacute;quinas</h1>
+                                <p>
+                                    Listagem e controle comercial dos
+                                    equipamentos cadastrados.
+                                </p>
+                            </div>
+                            <button
+                                class="admin-btn primary"
+                                type="button"
+                                data-new-machine
+                            >
+                                Nova m&aacute;quina
+                            </button>
+                        </div>
+
+                        <section
+                            class="admin-panel admin-machines-panel"
+                            data-machines-panel
+                        >
+                            <div
+                                class="admin-panel-head admin-machines-table-head"
+                            >
+                                <div>
+                                    <h2>Invent&aacute;rio administrativo</h2>
+                                    <p data-machines-summary>
+                                        M&aacute;quinas cadastradas no
+                                        cat&aacute;logo.
+                                    </p>
+                                </div>
+                                <div
+                                    class="admin-machines-table-meta"
+                                    aria-label="Resumo da listagem"
+                                >
+                                    <span>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                        >
+                                            <path d="M20 6 9 17l-5-5" />
+                                        </svg>
+                                        <span data-machines-active-summary
+                                            >0 ativas</span
+                                        >
+                                    </span>
+                                    <span>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                                            />
+                                        </svg>
+                                        <span data-machines-featured-summary
+                                            >0 destaques</span
+                                        >
+                                    </span>
+                                </div>
+                            </div>
+                            <button
+                                class="admin-mobile-filter-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-controls="machine-filters"
+                                data-machine-filters-toggle
+                            >
+                                <span class="admin-mobile-filter-toggle-main">
+                                    <span
+                                        class="admin-mobile-filter-toggle-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M4.8 5.5h14.4L13.6 12v5.3l-3.2 1.2V12L4.8 5.5Z"
+                                            />
+                                        </svg>
+                                    </span>
+                                    <span>Filtros</span>
+                                    <span
+                                        class="admin-mobile-filter-count"
+                                        data-machine-filters-count
+                                        hidden
+                                        >0</span
+                                    >
+                                </span>
+                                <span
+                                    class="admin-mobile-filter-chevron"
+                                    aria-hidden="true"
+                                >
+                                    <svg viewBox="0 0 24 24" focusable="false">
+                                        <path d="m7 9.5 5 5 5-5" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <div
+                                id="machine-filters"
+                                class="admin-machines-filters"
+                                aria-label="Filtros da listagem de m&aacute;quinas"
+                            >
+                                <div
+                                    class="admin-filter-field admin-filter-search"
+                                >
+                                    <span
+                                        class="admin-filter-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M10.8 18.2a7.4 7.4 0 1 1 0-14.8 7.4 7.4 0 0 1 0 14.8Zm5.4-1.7 4.4 4.4"
+                                            />
+                                        </svg>
+                                    </span>
+                                    <input
+                                        id="machines-search"
+                                        type="search"
+                                        aria-label="Buscar m&aacute;quina"
+                                        placeholder="Buscar m&aacute;quina..."
+                                        spellcheck="false"
+                                        data-machine-search
+                                    />
+                                    <button
+                                        class="admin-search-clear"
+                                        type="button"
+                                        aria-label="Limpar busca"
+                                        data-machine-search-clear
+                                        hidden
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                        >
+                                            <path d="M8 8l8 8" />
+                                            <path d="M16 8l-8 8" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div
+                                    class="admin-filter-field admin-filter-select-field"
+                                >
+                                    <span
+                                        class="admin-filter-icon admin-filter-slim-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M5 6.5V12l6.7 6.7a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8L12 5H6.5A1.5 1.5 0 0 0 5 6.5Z"
+                                            />
+                                            <path d="M8.8 8.8h.1" />
+                                        </svg>
+                                    </span>
+                                    <div
+                                        class="admin-custom-select admin-filter-select"
+                                        data-machine-category-filter-select
+                                    >
+                                        <input
+                                            type="hidden"
+                                            data-machine-category-filter-input
+                                        />
+                                        <button
+                                            class="admin-custom-select-trigger"
+                                            type="button"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false"
+                                            data-machine-category-filter-trigger
+                                        >
+                                            <span
+                                                data-machine-category-filter-label
+                                                >Todas categorias</span
+                                            >
+                                            <span
+                                                class="admin-custom-select-icon"
+                                                aria-hidden="true"
+                                            >
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    focusable="false"
+                                                >
+                                                    <path d="m7 9.5 5 5 5-5" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div
+                                            class="admin-custom-select-menu"
+                                            role="listbox"
+                                            data-machine-category-filter-menu
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="admin-filter-field admin-filter-select-field"
+                                >
+                                    <span
+                                        class="admin-filter-icon admin-filter-slim-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M12 4.2 19.2 8.2v7.6L12 19.8l-7.2-4V8.2L12 4.2Z"
+                                            />
+                                            <path
+                                                class="admin-filter-inner-line"
+                                                d="M8.6 12h6.8"
+                                            />
+                                        </svg>
+                                    </span>
+                                    <div
+                                        class="admin-custom-select admin-filter-select"
+                                        data-machine-status-filter-select
+                                    >
+                                        <input
+                                            type="hidden"
+                                            data-machine-status-filter-input
+                                        />
+                                        <button
+                                            class="admin-custom-select-trigger"
+                                            type="button"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false"
+                                            data-machine-status-filter-trigger
+                                        >
+                                            <span
+                                                data-machine-status-filter-label
+                                                >Todos status</span
+                                            >
+                                            <span
+                                                class="admin-custom-select-icon"
+                                                aria-hidden="true"
+                                            >
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    focusable="false"
+                                                >
+                                                    <path d="m7 9.5 5 5 5-5" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div
+                                            class="admin-custom-select-menu"
+                                            role="listbox"
+                                            data-machine-status-filter-menu
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="admin-filter-field admin-filter-select-field"
+                                >
+                                    <span
+                                        class="admin-filter-icon admin-filter-status-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="M13.3 3.9A8.2 8.2 0 0 1 17 18.4"
+                                            />
+                                            <path
+                                                d="M3.8 12.9A8.2 8.2 0 0 0 12.8 20.2"
+                                            />
+                                            <path
+                                                d="M4.5 8.7A8.2 8.2 0 0 1 9.5 4.2"
+                                            />
+                                        </svg>
+                                    </span>
+                                    <div
+                                        class="admin-custom-select admin-filter-select"
+                                        data-machine-active-filter-select
+                                    >
+                                        <input
+                                            type="hidden"
+                                            data-machine-active-filter-input
+                                        />
+                                        <button
+                                            class="admin-custom-select-trigger"
+                                            type="button"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false"
+                                            data-machine-active-filter-trigger
+                                        >
+                                            <span
+                                                data-machine-active-filter-label
+                                                >Todas
+                                                situa&ccedil;&otilde;es</span
+                                            >
+                                            <span
+                                                class="admin-custom-select-icon"
+                                                aria-hidden="true"
+                                            >
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    focusable="false"
+                                                >
+                                                    <path d="m7 9.5 5 5 5-5" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div
+                                            class="admin-custom-select-menu"
+                                            role="listbox"
+                                            data-machine-active-filter-menu
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="admin-filter-field admin-filter-select-field"
+                                >
+                                    <span
+                                        class="admin-filter-icon admin-filter-slim-icon"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                        >
+                                            <path
+                                                d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                                            />
+                                        </svg>
+                                    </span>
+                                    <div
+                                        class="admin-custom-select admin-filter-select"
+                                        data-machine-featured-filter-select
+                                    >
+                                        <input
+                                            type="hidden"
+                                            data-machine-featured-filter-input
+                                        />
+                                        <button
+                                            class="admin-custom-select-trigger"
+                                            type="button"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false"
+                                            data-machine-featured-filter-trigger
+                                        >
+                                            <span
+                                                data-machine-featured-filter-label
+                                                >Todos destaques</span
+                                            >
+                                            <span
+                                                class="admin-custom-select-icon"
+                                                aria-hidden="true"
+                                            >
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    focusable="false"
+                                                >
+                                                    <path d="m7 9.5 5 5 5-5" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div
+                                            class="admin-custom-select-menu"
+                                            role="listbox"
+                                            data-machine-featured-filter-menu
+                                            hidden
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="admin-filter-clear"
+                                    type="button"
+                                    data-machine-clear-filters
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <path d="M6.5 7h11" />
+                                        <path d="M9 12h6" />
+                                        <path d="M11.2 17h1.6" />
+                                    </svg>
+                                    Limpar
+                                </button>
+                            </div>
+                            <div class="admin-panel-body">
+                                <div class="admin-table-wrap">
+                                    <table
+                                        class="admin-table admin-machines-table"
+                                    >
+                                        <thead>
+                                            <tr>
+                                                <th>M&aacute;quina</th>
+                                                <th>Categoria</th>
+                                                <th>Status</th>
+                                                <th class="admin-table-number">
+                                                    Dispon&iacute;vel
+                                                </th>
+                                                <th>Destaque</th>
+                                                <th>Ativa</th>
+                                                <th>A&ccedil;&otilde;es</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-admin-table></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+
+                    <section
+                        class="admin-view"
+                        data-admin-view="categorias"
+                        aria-labelledby="categories-title"
+                    >
+                        <div class="admin-page-head">
+                            <div>
+                                <span class="admin-eyebrow"
+                                    >Organiza&ccedil;&atilde;o</span
+                                >
+                                <h1 id="categories-title">Categorias</h1>
+                                <p>
+                                    Gerencie as fam&iacute;lias usadas para
+                                    filtrar o cat&aacute;logo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="admin-grid-two admin-category-layout">
+                            <section
+                                class="admin-panel admin-category-form-panel"
+                                data-category-form-panel
+                            >
+                                <div class="admin-panel-head">
+                                    <h2 data-category-form-title>
+                                        Nova categoria
+                                    </h2>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <form class="admin-form" data-category-form>
+                                        <div class="admin-field">
+                                            <label for="category-name"
+                                                >Nome da categoria</label
+                                            >
+                                            <input
+                                                id="category-name"
+                                                name="name"
+                                                type="text"
+                                                placeholder="Ex: Prensas Hidr&aacute;ulicas"
+                                            />
+                                        </div>
+                                        <div class="admin-field">
+                                            <label for="category-slug"
+                                                >Slug</label
+                                            >
+                                            <input
+                                                id="category-slug"
+                                                name="slug"
+                                                type="text"
+                                                placeholder="gerado automaticamente se vazio"
+                                            />
+                                        </div>
+                                        <label class="admin-check">
+                                            <input
+                                                name="active"
+                                                type="checkbox"
+                                                checked
+                                            />
+                                            Categoria ativa
+                                        </label>
+                                        <div
+                                            class="admin-message"
+                                            data-category-message
+                                        ></div>
+                                        <div class="admin-form-actions">
+                                            <button
+                                                class="admin-btn"
+                                                type="button"
+                                                data-cancel-category
+                                            >
+                                                Cancelar
+                                            </button>
+                                            <button
+                                                class="admin-btn primary"
+                                                type="submit"
+                                            >
+                                                Salvar categoria
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+
+                            <section
+                                class="admin-panel admin-category-list-panel"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2>Categorias cadastradas</h2>
+                                        <p data-category-list-summary>
+                                            Categorias dispon&iacute;veis para o
+                                            cat&aacute;logo.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div
+                                        class="admin-category-toolbar"
+                                        aria-label="Filtros de categorias"
+                                    >
+                                        <label class="admin-category-search">
+                                            <span
+                                                class="admin-category-search-icon"
+                                                aria-hidden="true"
+                                            >
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    focusable="false"
+                                                >
+                                                    <path
+                                                        d="M10.8 18.2a7.4 7.4 0 1 1 0-14.8 7.4 7.4 0 0 1 0 14.8Zm5.4-1.7 4.4 4.4"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <input
+                                                type="search"
+                                                aria-label="Buscar categoria"
+                                                placeholder="Buscar categoria..."
+                                                spellcheck="false"
+                                                data-category-search
+                                            />
+                                        </label>
+                                        <div
+                                            class="admin-category-segmented"
+                                            aria-label="Filtrar categorias por status"
+                                        >
+                                            <button
+                                                class="active"
+                                                type="button"
+                                                data-category-status-filter=""
+                                            >
+                                                Todas
+                                            </button>
+                                            <button
+                                                type="button"
+                                                data-category-status-filter="active"
+                                            >
+                                                Ativas
+                                            </button>
+                                            <button
+                                                type="button"
+                                                data-category-status-filter="inactive"
+                                            >
+                                                Inativas
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="admin-category-table-wrap">
+                                        <div
+                                            class="admin-category-list-head"
+                                            aria-hidden="true"
+                                        >
+                                            <span>Categoria</span>
+                                            <span>Slug</span>
+                                            <span>QTD</span>
+                                            <span>Status</span>
+                                            <span>A&ccedil;&otilde;es</span>
+                                        </div>
+                                        <div
+                                            class="admin-category-list"
+                                            data-category-list
+                                        ></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section
+                        class="admin-view"
+                        data-admin-view="configuracoes"
+                        aria-labelledby="settings-title"
+                    >
+                        <div class="admin-page-head">
+                            <div>
+                                <span class="admin-eyebrow"
+                                    >Cat&aacute;logo</span
+                                >
+                                <h1 id="settings-title">
+                                    Configura&ccedil;&otilde;es
+                                </h1>
+                                <p>
+                                    Dados gerais que futuramente
+                                    alimentar&atilde;o a experi&ecirc;ncia
+                                    p&uacute;blica.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="admin-grid-two admin-settings-layout">
+                            <section class="admin-panel admin-settings-panel">
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2>
+                                            Configura&ccedil;&otilde;es do
+                                            cat&aacute;logo
+                                        </h2>
+                                        <p>
+                                            Identidade, contato comercial e
+                                            textos da experi&ecirc;ncia
+                                            p&uacute;blica.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <form
+                                        class="admin-form admin-settings-form"
+                                        data-settings-form
+                                    >
+                                        <div class="admin-settings-block">
+                                            <div
+                                                class="admin-settings-block-head"
+                                            >
+                                                <h3>Cat&aacute;logo</h3>
+                                            </div>
+                                            <div class="admin-editor">
+                                                <div class="admin-field">
+                                                    <label
+                                                        for="settings-catalog-name"
+                                                        >Nome exibido</label
+                                                    >
+                                                    <input
+                                                        id="settings-catalog-name"
+                                                        name="catalogName"
+                                                        type="text"
+                                                        placeholder="Cat&aacute;logo de M&aacute;quinas"
+                                                    />
+                                                </div>
+
+                                                <div class="admin-field">
+                                                    <label
+                                                        for="settings-whatsapp"
+                                                        >WhatsApp para
+                                                        or&ccedil;amento</label
+                                                    >
+                                                    <input
+                                                        id="settings-whatsapp"
+                                                        name="whatsappNumber"
+                                                        type="text"
+                                                        inputmode="tel"
+                                                        placeholder="5516991265833"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="admin-settings-block">
+                                            <div
+                                                class="admin-settings-block-head"
+                                            >
+                                                <h3>
+                                                    Apresenta&ccedil;&atilde;o
+                                                </h3>
+                                            </div>
+                                            <div class="admin-editor">
+                                                <div class="admin-field wide">
+                                                    <label
+                                                        for="settings-hero-title"
+                                                        >T&iacute;tulo
+                                                        inicial</label
+                                                    >
+                                                    <input
+                                                        id="settings-hero-title"
+                                                        name="heroTitle"
+                                                        type="text"
+                                                        placeholder="M&aacute;quinas industriais sob consulta"
+                                                    />
+                                                </div>
+
+                                                <div class="admin-field wide">
+                                                    <label
+                                                        for="settings-hero-description"
+                                                        >Descri&ccedil;&atilde;o
+                                                        inicial</label
+                                                    >
+                                                    <textarea
+                                                        id="settings-hero-description"
+                                                        name="heroDescription"
+                                                        placeholder="Texto de apresenta&ccedil;&atilde;o do cat&aacute;logo"
+                                                    ></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="admin-settings-block">
+                                            <div
+                                                class="admin-settings-block-head"
+                                            >
+                                                <h3>
+                                                    Mensagem de or&ccedil;amento
+                                                </h3>
+                                            </div>
+                                            <div class="admin-field">
+                                                <label for="settings-message"
+                                                    >Mensagem
+                                                    padr&atilde;o</label
+                                                >
+                                                <textarea
+                                                    id="settings-message"
+                                                    name="quoteMessage"
+                                                    placeholder="Ol&aacute;, vim pelo site da ALS M&aacute;quinas e gostaria de solicitar um or&ccedil;amento..."
+                                                ></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="admin-message"
+                                            data-settings-message
+                                        ></div>
+                                        <div
+                                            class="admin-form-actions admin-settings-form-actions"
+                                        >
+                                            <button
+                                                class="admin-btn"
+                                                type="button"
+                                                data-reset-settings
+                                            >
+                                                Restaurar padr&atilde;o
+                                            </button>
+                                            <button
+                                                class="admin-btn primary"
+                                                type="submit"
+                                            >
+                                                Salvar
+                                                configura&ccedil;&otilde;es
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+
+                            <aside
+                                class="admin-panel admin-settings-preview-panel"
+                            >
+                                <div class="admin-panel-head">
+                                    <div>
+                                        <h2>Pr&eacute;via</h2>
+                                        <p>Resumo dos dados atuais.</p>
+                                    </div>
+                                </div>
+                                <div class="admin-panel-body">
+                                    <div class="admin-settings-preview-card">
+                                        <span data-settings-preview-catalog
+                                            >Cat&aacute;logo de
+                                            M&aacute;quinas</span
+                                        >
+                                        <h3 data-settings-preview-title>
+                                            M&aacute;quinas industriais sob
+                                            consulta
+                                        </h3>
+                                        <p data-settings-preview-description>
+                                            Consulte equipamentos industriais,
+                                            disponibilidade comercial e
+                                            especifica&ccedil;&otilde;es
+                                            t&eacute;cnicas.
+                                        </p>
+                                    </div>
+
+                                    <div class="admin-settings-preview-list">
+                                        <div>
+                                            <span>WhatsApp</span>
+                                            <strong
+                                                data-settings-preview-whatsapp
+                                                >+55 16 99126-5833</strong
+                                            >
+                                        </div>
+                                        <div>
+                                            <span>Mensagem</span>
+                                            <p data-settings-preview-message>
+                                                Ol&aacute;, vim pelo site da ALS
+                                                M&aacute;quinas e gostaria de
+                                                solicitar um or&ccedil;amento.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <a
+                                        class="admin-btn admin-settings-test-link"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener"
+                                        data-settings-whatsapp-test
+                                    >
+                                        <span
+                                            class="admin-settings-whatsapp-icon"
+                                            aria-hidden="true"
+                                        >
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                focusable="false"
+                                            >
+                                                <path
+                                                    class="admin-settings-whatsapp-bubble"
+                                                    d="M12 3.2a8.64 8.64 0 0 0-7.36 13.16l-.94 3.94 4.04-1.02A8.64 8.64 0 1 0 12 3.2Z"
+                                                />
+                                                <path
+                                                    class="admin-settings-whatsapp-phone"
+                                                    d="M8.54 7.24c-.34.08-.73.46-.98.98-.3.59-.32 1.47-.04 2.35.47 1.54 1.76 3.04 3.32 4.03 1.61 1.04 3.38 1.44 4.46 1.09.66-.22 1.21-.78 1.37-1.4l.17-.69a.62.62 0 0 0-.36-.76l-1.82-.84a.68.68 0 0 0-.94.24l-.58.78a.55.55 0 0 1-.65.16 7.27 7.27 0 0 1-2.96-2.86.54.54 0 0 1 .1-.66l.68-.6c.27-.23.34-.61.17-.92L9.52 7.6a.79.79 0 0 0-.98-.36Z"
+                                                />
+                                            </svg>
+                                        </span>
+                                        Testar WhatsApp
+                                    </a>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <div
+            class="admin-modal"
+            data-settings-reset-modal
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="settings-reset-title"
+            hidden
+        >
+            <div class="admin-modal-backdrop" data-settings-reset-dismiss></div>
+            <section class="admin-modal-card" role="document">
+                <button
+                    class="admin-modal-close"
+                    type="button"
+                    aria-label="Fechar modal"
+                    data-settings-reset-dismiss
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M7 7l10 10" />
+                        <path d="M17 7 7 17" />
+                    </svg>
+                </button>
+
+                <div class="admin-modal-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M12 8v5" />
+                        <path d="M12 17h.01" />
+                        <path
+                            d="M10.3 4.6 3.4 16.5a2 2 0 0 0 1.7 3h13.8a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0Z"
+                        />
+                    </svg>
+                </div>
+
+                <div class="admin-modal-content">
+                    <h2 id="settings-reset-title">Restaurar padr&atilde;o?</h2>
+                    <p>
+                        As configura&ccedil;&otilde;es atuais ser&atilde;o
+                        substitu&iacute;das pelos dados padr&atilde;o do
+                        cat&aacute;logo.
+                    </p>
+                </div>
+
+                <div class="admin-modal-actions">
+                    <button
+                        class="admin-btn"
+                        type="button"
+                        data-settings-reset-cancel
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        class="admin-btn danger"
+                        type="button"
+                        data-settings-reset-confirm
+                    >
+                        Restaurar
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div
+            class="admin-modal"
+            data-machine-remove-modal
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="machine-remove-title"
+            hidden
+        >
+            <div class="admin-modal-backdrop" data-machine-remove-dismiss></div>
+            <section class="admin-modal-card" role="document">
+                <button
+                    class="admin-modal-close"
+                    type="button"
+                    aria-label="Fechar modal"
+                    data-machine-remove-dismiss
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M7 7l10 10" />
+                        <path d="M17 7 7 17" />
+                    </svg>
+                </button>
+
+                <div class="admin-modal-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M12 8v5" />
+                        <path d="M12 17h.01" />
+                        <path
+                            d="M10.3 4.6 3.4 16.5a2 2 0 0 0 1.7 3h13.8a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0Z"
+                        />
+                    </svg>
+                </div>
+
+                <div class="admin-modal-content">
+                    <h2 id="machine-remove-title" data-machine-remove-title>
+                        Excluir produto?
+                    </h2>
+                    <p data-machine-remove-message></p>
+                    <p
+                        class="admin-modal-detail"
+                        data-machine-remove-detail
+                    ></p>
+                </div>
+
+                <div class="admin-modal-actions">
+                    <button
+                        class="admin-btn"
+                        type="button"
+                        data-machine-remove-cancel
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        class="admin-btn danger"
+                        type="button"
+                        data-machine-remove-confirm
+                    >
+                        Excluir
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div
+            class="admin-modal"
+            data-category-remove-modal
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="category-remove-title"
+            hidden
+        >
+            <div
+                class="admin-modal-backdrop"
+                data-category-remove-dismiss
+            ></div>
+            <section class="admin-modal-card" role="document">
+                <button
+                    class="admin-modal-close"
+                    type="button"
+                    aria-label="Fechar modal"
+                    data-category-remove-dismiss
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M7 7l10 10" />
+                        <path d="M17 7 7 17" />
+                    </svg>
+                </button>
+
+                <div class="admin-modal-icon" data-category-remove-icon>
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path d="M12 8v5" />
+                        <path d="M12 17h.01" />
+                        <path
+                            d="M10.3 4.6 3.4 16.5a2 2 0 0 0 1.7 3h13.8a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0Z"
+                        />
+                    </svg>
+                </div>
+
+                <div class="admin-modal-content">
+                    <h2 id="category-remove-title" data-category-remove-title>
+                        Remover categoria?
+                    </h2>
+                    <p data-category-remove-message></p>
+                    <p
+                        class="admin-modal-detail"
+                        data-category-remove-detail
+                    ></p>
+                </div>
+
+                <div class="admin-modal-actions">
+                    <button
+                        class="admin-btn"
+                        type="button"
+                        data-category-remove-cancel
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        class="admin-btn danger"
+                        type="button"
+                        data-category-remove-confirm
+                    >
+                        Remover
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../js/config/runtime-config.generated.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore-compat.js"></script>
+        <script src="../js/admin/admin-firebase.js"></script>
+        <script src="../js/catalogo/catalogo-normalizer.js"></script>
+        <script src="../js/catalogo/catalogo-data.generated.js"></script>
+        <script src="../js/admin/admin.js"></script>
+    </body>
+</html>

@@ -137,6 +137,100 @@
   // inicializa focus block em menu mobile fechado
   setMobileFocusable(false);
 
+  const initGalleryLightbox = () => {
+    const gallery = document.querySelector('.galeria-grid');
+    if (!gallery) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'galeria-lightbox';
+    lightbox.hidden = true;
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Imagem ampliada da galeria');
+    lightbox.innerHTML = `
+      <button class="galeria-lightbox-close" type="button" aria-label="Fechar imagem ampliada">
+        <span></span>
+        <span></span>
+      </button>
+      <img class="galeria-lightbox-img" src="" alt="">
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImage = lightbox.querySelector('.galeria-lightbox-img');
+    const closeButton = lightbox.querySelector('.galeria-lightbox-close');
+    let previousOverflow = '';
+    let lastFocused = null;
+
+    const openLightbox = (image) => {
+      if (!image || !lightboxImage) return;
+
+      lastFocused = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt || 'Imagem ampliada da galeria ALS';
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => {
+        lightbox.classList.add('active');
+        closeButton?.focus();
+      });
+    };
+
+    const closeLightbox = () => {
+      if (lightbox.hidden) return;
+
+      lightbox.classList.remove('active');
+      document.body.style.overflow = previousOverflow;
+
+      window.setTimeout(() => {
+        if (lightbox.classList.contains('active')) return;
+        lightbox.hidden = true;
+        lightboxImage.src = '';
+      }, 180);
+
+      if (lastFocused?.focus) {
+        lastFocused.focus();
+      }
+      lastFocused = null;
+    };
+
+    gallery.querySelectorAll('.galeria-item').forEach((item) => {
+      const image = item.querySelector('img');
+      if (!image) return;
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', `Ampliar ${image.alt || 'imagem da galeria'}`);
+    });
+
+    gallery.addEventListener('click', (event) => {
+      const item = event.target.closest('.galeria-item');
+      const image = item?.querySelector('img');
+      if (image) openLightbox(image);
+    });
+
+    gallery.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      const item = event.target.closest('.galeria-item');
+      const image = item?.querySelector('img');
+      if (!image) return;
+      event.preventDefault();
+      openLightbox(image);
+    });
+
+    closeButton?.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keyup', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  };
+
+  initGalleryLightbox();
+
   // Hero slider
   const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
   let heroIndex = 0;

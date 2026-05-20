@@ -42,6 +42,20 @@
   background: #13131a;
   border-radius: 0;
   overflow: hidden;
+  cursor: zoom-in;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.galeria-item:hover {
+  opacity: 0.92;
+}
+
+.galeria-item:focus-visible {
+  outline: 3px solid rgba(207, 22, 45, 0.72);
+  outline-offset: 3px;
+  transform: scale(0.99);
 }
 
 .galeria-item img {
@@ -102,6 +116,99 @@
   transform: rotate(-45deg);
   filter: invert(1);
 }
+
+.galeria-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 5, 8, 0.92);
+  padding: 28px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease;
+}
+
+.galeria-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.galeria-lightbox[hidden] {
+  display: none;
+}
+
+.galeria-lightbox-img {
+  display: block;
+  max-width: min(94vw, 1280px);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #111217;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+  transform: scale(0.96);
+  transition: transform 0.18s ease;
+}
+
+.galeria-lightbox.active .galeria-lightbox-img {
+  transform: scale(1);
+}
+
+.galeria-lightbox-close {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 20001;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.galeria-lightbox-close:hover,
+.galeria-lightbox-close:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.galeria-lightbox-close:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.34);
+  outline-offset: 3px;
+}
+
+.galeria-lightbox-close span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+  transform-origin: center;
+}
+
+.galeria-lightbox-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.galeria-lightbox-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galeria-item,
+  .galeria-lightbox,
+  .galeria-lightbox-img {
+    transition: none;
+  }
+}
+
 .galeria-divisoria {
   width: 100%;
   height: auto;

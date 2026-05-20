@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "npx -y netlify-cli dev",
+    "build": "node scripts/generate-runtime-config.js && node scripts/export-firebase-catalog.js && node scripts/generate-catalog-pages.js",
+    "catalog:generate": "node scripts/generate-catalog-pages.js",
+    "config:generate": "node scripts/generate-runtime-config.js",
+    "firebase:export": "node scripts/export-firebase-catalog.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.10.0",
+    "dotenv": "^17.4.2",
+    "firebase": "^12.13.0",
+    "firebase-admin": "^13.10.0"
+  }
+}

@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+firebase-service-account.json
+*.log
+deno.lock
+node_modules/
+
+# Local Netlify folder
+.netlify

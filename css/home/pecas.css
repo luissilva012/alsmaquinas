@@ -142,6 +142,41 @@
   background-position: center;
   isolation: isolate;
   text-decoration: none;
+  box-shadow: 0 1px 0 rgba(15, 15, 21, 0.04);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
+}
+
+.pecas-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 42%),
+    linear-gradient(0deg, rgba(15, 15, 21, 0.1), rgba(15, 15, 21, 0.1));
+  opacity: 0;
+  transition: opacity 0.24s ease;
+  pointer-events: none;
+}
+
+.pecas-card:not(.sob-consulta):hover,
+.pecas-card:not(.sob-consulta):focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 15, 21, 0.08);
+  filter: saturate(1.02);
+}
+
+.pecas-card:not(.sob-consulta):hover::before,
+.pecas-card:not(.sob-consulta):focus-visible::before {
+  opacity: 1;
+}
+
+.pecas-card:focus-visible {
+  outline: 3px solid rgba(207, 22, 45, 0.28);
+  outline-offset: 3px;
 }
 
 .pecas-card:nth-child(5) {
@@ -172,6 +207,15 @@
   display: none;
 }
 
+.pecas-card span::after {
+  transition: transform 0.24s ease;
+}
+
+.pecas-card:not(.sob-consulta):hover span::after,
+.pecas-card:not(.sob-consulta):focus-visible span::after {
+  transform: translateX(4px);
+}
+
 .pecas-card.bombas {
   background-image: url('../../assets/imgs/bombas-bg.webp');
 }
@@ -191,6 +235,19 @@
 .pecas-card.sob-consulta {
   background-image: url('../../assets/imgs/sob-consulta-bg.webp');
   grid-column: 1 / -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pecas-card,
+  .pecas-card::before,
+  .pecas-card span::after {
+    transition: none;
+  }
+
+  .pecas-card:hover,
+  .pecas-card:focus-visible {
+    transform: none;
+  }
 }
 
 .pecas-divisoria {
