@@ -9,32 +9,17 @@
 
 ## Environment variables
 
-Configure as variaveis no painel do Cloudflare Pages em `Settings > Environment variables`.
+As variaveis publicas ficam em `wrangler.toml`, porque este projeto usa Wrangler para configurar o Pages.
+
+No Dashboard do Cloudflare, configure apenas os secrets em `Settings > Environment variables`.
 
 ```env
-NODE_VERSION=20
-
-FIREBASE_API_KEY=
-FIREBASE_AUTH_DOMAIN=catalogo-als.firebaseapp.com
-FIREBASE_PROJECT_ID=catalogo-als
-FIREBASE_STORAGE_BUCKET=catalogo-als.firebasestorage.app
-FIREBASE_MESSAGING_SENDER_ID=171009163821
-FIREBASE_APP_ID=
-FIREBASE_MEASUREMENT_ID=
-FIREBASE_ADMIN_UIDS=
-
 FIREBASE_SERVICE_ACCOUNT_B64=
-
-CLOUDINARY_CLOUD_NAME=dooprpnho
-CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
-CLOUDINARY_UPLOAD_PRESET=als_admin_products
-CLOUDINARY_FOLDER=als-maquinas/produtos
-
 CLOUDFLARE_DEPLOY_HOOK_URL=
 ```
 
-`FIREBASE_ADMIN_UIDS` deve receber os UIDs dos administradores separados por virgula.
+`FIREBASE_ADMIN_UIDS` fica em `wrangler.toml` e deve receber os UIDs dos administradores separados por virgula.
 
 ## Deploy hook
 
