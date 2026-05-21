@@ -9,6 +9,29 @@
         />
         <meta name="robots" content="index,follow" />
         <title>ALS M&aacute;quinas | Cat&aacute;logo de M&aacute;quinas</title>
+        <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+        <link rel="dns-prefetch" href="//res.cloudinary.com" />
+        <link
+            rel="preload"
+            href="assets/fonts/stolzl_medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/Figtree-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/imgs/hero-als-catalogo.webp"
+            type="image/webp"
+            fetchpriority="high"
+        />
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/catalogo/catalogo.css" />
         <link
@@ -355,6 +378,9 @@
                                 <img
                                     src="assets/imgs/hero-als-catalogo.webp"
                                     alt=""
+                                    loading="eager"
+                                    decoding="async"
+                                    fetchpriority="high"
                                 />
                             </div>
                         </div>
@@ -413,6 +439,9 @@
                                 <img
                                     src="assets/imgs/catalogo-hero-als.webp"
                                     alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                    fetchpriority="low"
                                 />
                             </div>
                         </div>
@@ -470,6 +499,9 @@
                                 <img
                                     src="assets/imgs/hero-misturadores.webp"
                                     alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                    fetchpriority="low"
                                 />
                             </div>
                         </div>
@@ -528,6 +560,9 @@
                                 <img
                                     src="assets/imgs/catalogo-componentes-hero.webp"
                                     alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                    fetchpriority="low"
                                 />
                             </div>
                         </div>

@@ -1,52 +1,5 @@
 window.ALS_CATALOG_MACHINES = [
   {
-    "id": "raspador-de-borracha-industrial",
-    "quantityAvailable": 0,
-    "galleryImageUrls": [
-      "assets/imgs/raspadores.webp"
-    ],
-    "active": true,
-    "commercialStatus": "disponivel",
-    "createdAt": "2026-05-08T13:56:29.389Z",
-    "specs": {
-      "dimensoes": "",
-      "observacoes": "",
-      "tensao": "",
-      "estado": "",
-      "acionamento": "",
-      "ano": "",
-      "peso": "",
-      "aplicacao": "",
-      "capacidade": "",
-      "modelo": ""
-    },
-    "internalNote": "",
-    "quantityReserved": 0,
-    "sortOrder": 4,
-    "name": "Raspador de Borracha Industrial",
-    "minimumStock": 0,
-    "category": "Raspadores",
-    "mainImageUrl": "assets/imgs/raspadores.webp",
-    "slug": "raspador-de-borracha-industrial",
-    "shortDescription": "Equipamento para acabamento e processo de raspagem em linhas de borracha, com configuração sob demanda.",
-    "fullDescription": "Raspador de borracha industrial destinado a operações de acabamento, preparação e raspagem em processos produtivos de borracha, com configuração avaliada conforme a aplicação.",
-    "documentId": "raspador-de-borracha-industrial",
-    "image": "assets/imgs/raspadores.webp",
-    "allowQuote": true,
-    "seoDescription": "",
-    "indexable": true,
-    "seoTitle": "",
-    "imageAlt": "Raspador de Borracha Industrial",
-    "gallery": [
-      "assets/imgs/raspadores.webp"
-    ],
-    "statusLabel": "",
-    "status": "disponivel",
-    "featured": true,
-    "destaque": true,
-    "updatedAt": "2026-05-20T21:23:31.273Z"
-  },
-  {
     "id": "misturador-de-borracha-75cv",
     "featured": true,
     "quantityAvailable": 1,
@@ -92,6 +45,53 @@ window.ALS_CATALOG_MACHINES = [
     ],
     "statusLabel": "",
     "status": "disponivel"
+  },
+  {
+    "id": "raspador-de-borracha-industrial",
+    "quantityAvailable": 0,
+    "galleryImageUrls": [
+      "assets/imgs/raspadores.webp"
+    ],
+    "active": true,
+    "commercialStatus": "disponivel",
+    "createdAt": "2026-05-08T13:56:29.389Z",
+    "specs": {
+      "dimensoes": "",
+      "observacoes": "",
+      "tensao": "",
+      "estado": "",
+      "acionamento": "",
+      "ano": "",
+      "peso": "",
+      "aplicacao": "",
+      "capacidade": "",
+      "modelo": ""
+    },
+    "internalNote": "",
+    "quantityReserved": 0,
+    "sortOrder": 4,
+    "name": "Raspador de Borracha Industrial",
+    "minimumStock": 0,
+    "category": "Raspadores",
+    "mainImageUrl": "assets/imgs/raspadores.webp",
+    "slug": "raspador-de-borracha-industrial",
+    "shortDescription": "Equipamento para acabamento e processo de raspagem em linhas de borracha, com configuração sob demanda.",
+    "fullDescription": "Raspador de borracha industrial destinado a operações de acabamento, preparação e raspagem em processos produtivos de borracha, com configuração avaliada conforme a aplicação.",
+    "documentId": "raspador-de-borracha-industrial",
+    "image": "assets/imgs/raspadores.webp",
+    "allowQuote": true,
+    "seoDescription": "",
+    "indexable": true,
+    "seoTitle": "",
+    "imageAlt": "Raspador de Borracha Industrial",
+    "gallery": [
+      "assets/imgs/raspadores.webp"
+    ],
+    "statusLabel": "",
+    "status": "disponivel",
+    "featured": false,
+    "destaque": false,
+    "updatedAt": "2026-05-21T04:26:18.029Z"
   },
   {
     "id": "prensa-hidraulica-100-toneladas",

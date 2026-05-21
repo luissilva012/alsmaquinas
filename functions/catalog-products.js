@@ -59,7 +59,7 @@ const handleGet = async ({ env }) => {
   const products = documents.map(fromFirestoreDocument).filter((product) => product.active !== false);
 
   return jsonResponse({ products, source: 'firebase' }, 200, {
-    'Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
+    'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
   });
 };
 

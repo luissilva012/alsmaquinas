@@ -68,15 +68,23 @@
     refreshQuoteTargets();
     renderFilters();
     bindEvents();
-    setLoading(true);
+    setLoading(false);
+    renderCatalog();
+    renderQuote();
+    scheduleCatalogHydration();
+  };
 
-    window.setTimeout(() => {
-      setLoading(false);
-      renderCatalog();
-      renderQuote();
-    }, 350);
+  const scheduleCatalogHydration = () => {
+    const hydrate = () => {
+      hydrateCatalogFromCMS();
+    };
 
-    hydrateCatalogFromCMS();
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(hydrate, { timeout: 1200 });
+      return;
+    }
+
+    window.setTimeout(hydrate, 500);
   };
 
   const hydrateCatalogFromCMS = async () => {
@@ -630,7 +638,7 @@
       <article class="machine-card">
         ${detailLink}
         <div class="machine-card-media">
-          <img src="${machineImage}" alt="${machineName}" loading="lazy">
+          <img src="${machineImage}" alt="${machineName}" loading="lazy" decoding="async">
         </div>
         <div class="machine-card-body">
           <h3>${machineName}</h3>
@@ -701,7 +709,7 @@
           return `
           <article class="quote-item">
             <div class="quote-item-image">
-              <img src="${itemImage}" alt="${itemName}" loading="lazy">
+              <img src="${itemImage}" alt="${itemName}" loading="lazy" decoding="async">
             </div>
             <div class="quote-item-content">
               <strong>${itemName}</strong>

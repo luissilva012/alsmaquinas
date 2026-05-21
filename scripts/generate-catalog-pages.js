@@ -1013,6 +1013,10 @@ ${generatedMarker}
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${escapeAttr(absoluteUrl(mainImage))}">
   <title>${title}</title>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="dns-prefetch" href="//res.cloudinary.com">
+  <link rel="preload" href="../../../assets/fonts/stolzl_medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/Figtree-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="${escapeAttr(absoluteUrl(mainImage))}" fetchpriority="high">
   <link rel="stylesheet" href="../../../css/style.css">
   <link rel="stylesheet" href="../../../css/catalogo/catalogo.css">

@@ -1006,7 +1006,7 @@
         <button class="product-gallery-arrow product-gallery-arrow-prev" type="button" data-gallery-prev aria-label="Imagem anterior" ${hasMultiple ? '' : 'hidden'}>
           <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m15 6-6 6 6 6" /></svg>
         </button>
-        <img class="product-gallery-image" src="${escapeAttr(resolveAssetSrc(gallery[0]))}" alt="${imageAlt}" data-detail-main-image data-gallery-active-index="0" data-gallery-open role="button" tabindex="0" aria-label="Ampliar imagem do produto">
+        <img class="product-gallery-image" src="${escapeAttr(resolveAssetSrc(gallery[0]))}" alt="${imageAlt}" data-detail-main-image data-gallery-active-index="0" data-gallery-open role="button" tabindex="0" aria-label="Ampliar imagem do produto" fetchpriority="high" decoding="async">
         <button class="product-gallery-arrow product-gallery-arrow-next" type="button" data-gallery-next aria-label="Pr&oacute;xima imagem" ${hasMultiple ? '' : 'hidden'}>
           <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
         </button>
@@ -1029,7 +1029,7 @@
               const src = resolveAssetSrc(image);
               return `
               <button class="product-thumb ${index === 0 ? 'active' : ''}" type="button" data-detail-thumb="${escapeAttr(src)}" data-gallery-index="${index}" aria-label="Ver imagem ${index + 1} de ${gallery.length}" aria-pressed="${index === 0 ? 'true' : 'false'}">
-                <img src="${escapeAttr(src)}" alt="${imageAlt}" loading="lazy">
+                <img src="${escapeAttr(src)}" alt="${imageAlt}" loading="lazy" decoding="async">
               </button>`;
             })
             .join('')}

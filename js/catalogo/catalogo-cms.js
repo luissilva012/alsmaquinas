@@ -13,7 +13,7 @@
     const serverProducts = await loadProductsFromFunction();
     if (serverProducts !== null) return serverProducts;
 
-    if (!isConfigured()) return [];
+    if (!isConfigured() || runtime.allowPublicFirestoreRead !== true) return [];
 
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);

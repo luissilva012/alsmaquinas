@@ -6,11 +6,23 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/css/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/js/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 /js/catalogo/catalogo-data.generated.js
   Cache-Control: public, max-age=300, must-revalidate
 
 /js/config/runtime-config.generated.js
   Cache-Control: public, max-age=300, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
