@@ -103,6 +103,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/raspador-de-borracha-industrial/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alsmaquinas.com.br/catalogo/maquinas/misturador-de-borracha-75cv/</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -115,19 +121,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://alsmaquinas.com.br/catalogo/maquinas/valvula-hidraulica-alta-pressao/</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://alsmaquinas.com.br/catalogo/maquinas/unidade-hidraulica-compacta/</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://alsmaquinas.com.br/catalogo/maquinas/raspador-de-borracha-industrial/</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

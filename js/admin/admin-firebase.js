@@ -163,7 +163,7 @@
       throw new Error('Sess&atilde;o administrativa expirada. Fa&ccedil;a login novamente para enviar imagens.');
     }
 
-    const signatureResponse = await fetch('/.netlify/functions/cloudinary-signature', {
+    const signatureResponse = await fetchFunctionEndpoint('cloudinary-signature', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${idToken}`,
@@ -176,7 +176,7 @@
       const message = await readErrorMessage(
         signatureResponse,
         signatureResponse.status === 404
-          ? 'Fun&ccedil;&otilde;es Netlify indispon&iacute;veis neste servidor local. Abra o painel com Netlify Dev para enviar imagens.'
+          ? 'Servi&ccedil;o de envio indispon&iacute;vel neste ambiente.'
           : 'N&atilde;o foi poss&iacute;vel autorizar o envio da imagem.',
       );
       throw new Error(message);
@@ -241,7 +241,7 @@
 
     try {
       const idToken = await currentUser?.getIdToken();
-      const response = await fetch('/.netlify/functions/trigger-build', {
+      const response = await fetchFunctionEndpoint('trigger-build', {
         method: 'POST',
         headers: idToken ? { Authorization: `Bearer ${idToken}` } : {},
       });
@@ -280,6 +280,25 @@
         detail: { message, type },
       }),
     );
+  };
+
+  const fetchFunctionEndpoint = async (name, options = {}) => {
+    const endpoints = [`/${name}`, `/.netlify/functions/${name}`];
+    let lastResponse = null;
+    let lastError = null;
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, options);
+        if (response.status !== 404) return response;
+        lastResponse = response;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    if (lastResponse) return lastResponse;
+    throw lastError || new Error('function_unavailable');
   };
 
   window.ALSAdminBackend = {

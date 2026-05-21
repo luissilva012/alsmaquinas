@@ -3076,7 +3076,11 @@
     }
 
     if (context === 'upload' || message.includes('cloudinary') || message.includes('upload')) {
-      if (message.includes('fun&ccedil;&otilde;es netlify') || message.includes('netlify')) {
+      if (
+        message.includes('fun&ccedil;&otilde;es netlify')
+        || message.includes('netlify')
+        || message.includes('servi&ccedil;o de envio indispon')
+      ) {
         return 'N&atilde;o foi poss&iacute;vel carregar imagens neste ambiente. Tente novamente pelo painel correto.';
       }
 

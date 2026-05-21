@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "npx -y netlify-cli dev",
+    "dev": "npx -y wrangler pages dev . --compatibility-date=2026-05-20",
+    "dev:netlify": "npx -y netlify-cli dev",
     "build": "node scripts/generate-runtime-config.js && node scripts/export-firebase-catalog.js && node scripts/generate-catalog-pages.js",
     "catalog:generate": "node scripts/generate-catalog-pages.js",
     "config:generate": "node scripts/generate-runtime-config.js",

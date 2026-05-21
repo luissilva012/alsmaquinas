@@ -42,7 +42,7 @@
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-      const response = await fetch('/.netlify/functions/catalog-products', {
+      const response = await fetchFunctionEndpoint('catalog-products', {
         signal: controller.signal,
       });
 
@@ -62,6 +62,25 @@
     const projectId = encodeURIComponent(firebase.projectId);
     const apiKey = encodeURIComponent(firebase.apiKey);
     return `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents/${collection}?key=${apiKey}`;
+  };
+
+  const fetchFunctionEndpoint = async (name, options = {}) => {
+    const endpoints = [`/${name}`, `/.netlify/functions/${name}`];
+    let lastResponse = null;
+    let lastError = null;
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, options);
+        if (response.status !== 404) return response;
+        lastResponse = response;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    if (lastResponse) return lastResponse;
+    throw lastError || new Error('function_unavailable');
   };
 
   const getDocumentId = (name) => String(name || '').split('/').pop() || '';

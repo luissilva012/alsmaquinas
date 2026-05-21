@@ -1,5 +1,52 @@
 window.ALS_CATALOG_MACHINES = [
   {
+    "id": "raspador-de-borracha-industrial",
+    "quantityAvailable": 0,
+    "galleryImageUrls": [
+      "assets/imgs/raspadores.webp"
+    ],
+    "active": true,
+    "commercialStatus": "disponivel",
+    "createdAt": "2026-05-08T13:56:29.389Z",
+    "specs": {
+      "dimensoes": "",
+      "observacoes": "",
+      "tensao": "",
+      "estado": "",
+      "acionamento": "",
+      "ano": "",
+      "peso": "",
+      "aplicacao": "",
+      "capacidade": "",
+      "modelo": ""
+    },
+    "internalNote": "",
+    "quantityReserved": 0,
+    "sortOrder": 4,
+    "name": "Raspador de Borracha Industrial",
+    "minimumStock": 0,
+    "category": "Raspadores",
+    "mainImageUrl": "assets/imgs/raspadores.webp",
+    "slug": "raspador-de-borracha-industrial",
+    "shortDescription": "Equipamento para acabamento e processo de raspagem em linhas de borracha, com configuração sob demanda.",
+    "fullDescription": "Raspador de borracha industrial destinado a operações de acabamento, preparação e raspagem em processos produtivos de borracha, com configuração avaliada conforme a aplicação.",
+    "documentId": "raspador-de-borracha-industrial",
+    "image": "assets/imgs/raspadores.webp",
+    "allowQuote": true,
+    "seoDescription": "",
+    "indexable": true,
+    "seoTitle": "",
+    "imageAlt": "Raspador de Borracha Industrial",
+    "gallery": [
+      "assets/imgs/raspadores.webp"
+    ],
+    "statusLabel": "",
+    "status": "disponivel",
+    "featured": true,
+    "destaque": true,
+    "updatedAt": "2026-05-20T21:23:31.273Z"
+  },
+  {
     "id": "misturador-de-borracha-75cv",
     "featured": true,
     "quantityAvailable": 1,
@@ -36,15 +83,15 @@ window.ALS_CATALOG_MACHINES = [
     "commercialStatus": "disponivel",
     "updatedAt": "2026-05-20T05:46:10.591Z",
     "image": "assets/imgs/misturadores.webp",
+    "seoDescription": "",
+    "indexable": true,
+    "seoTitle": "",
+    "imageAlt": "Misturador de Borracha 75 CV",
     "gallery": [
       "assets/imgs/misturadores.webp"
     ],
-    "status": "disponivel",
     "statusLabel": "",
-    "indexable": true,
-    "seoTitle": "",
-    "seoDescription": "",
-    "imageAlt": "Misturador de Borracha 75 CV"
+    "status": "disponivel"
   },
   {
     "id": "prensa-hidraulica-100-toneladas",
@@ -83,66 +130,15 @@ window.ALS_CATALOG_MACHINES = [
     "commercialStatus": "disponivel",
     "updatedAt": "2026-05-20T05:47:39.371Z",
     "image": "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779241141/als-maquinas/produtos/ntfupgiwnqjpshmi31zf.png",
+    "seoDescription": "",
+    "indexable": true,
+    "seoTitle": "",
+    "imageAlt": "Prensa Hidráulica 100 Toneladas",
     "gallery": [
       "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779241141/als-maquinas/produtos/ntfupgiwnqjpshmi31zf.png"
     ],
-    "status": "disponivel",
     "statusLabel": "",
-    "indexable": true,
-    "seoTitle": "",
-    "seoDescription": "",
-    "imageAlt": "Prensa Hidráulica 100 Toneladas"
-  },
-  {
-    "id": "valvula-hidraulica-alta-pressao",
-    "featured": false,
-    "quantityAvailable": 0,
-    "galleryImageUrls": [
-      "assets/icons/valvulas.webp"
-    ],
-    "active": true,
-    "createdAt": "2026-05-08T13:56:29.389Z",
-    "internalNote": "",
-    "quantityReserved": 0,
-    "sortOrder": 6,
-    "destaque": false,
-    "minimumStock": 0,
-    "category": "Peças e Componentes",
-    "mainImageUrl": "assets/icons/valvulas.webp",
-    "slug": "valvula-hidraulica-alta-pressao",
-    "allowQuote": true,
-    "commercialStatus": "disponivel",
-    "updatedAt": "2026-05-19T23:37:45.693Z",
-    "specs": {
-      "Disponibilidade": "Reservada",
-      "Condi&ccedil;&atilde;o": "Reservada",
-      "dimensoes": "",
-      "observacoes": "",
-      "tensao": "",
-      "estado": "",
-      "acionamento": "",
-      "ano": "",
-      "peso": "",
-      "aplicacao": "",
-      "capacidade": "",
-      "modelo": "",
-      "Aplica&ccedil;&atilde;o": "Controle de fluxo e pressão hidráulica",
-      "Categoria": "Peças e Componentes"
-    },
-    "name": "Válvula Hidráulica de Alta Pressão",
-    "shortDescription": "Componente para controle de fluxo e pressão em sistemas hidráulicos de máquinas industriais.",
-    "fullDescription": "Válvula hidráulica de alta pressão para controle de fluxo, pressão e operação em sistemas hidráulicos industriais. A aplicação deve ser verificada de acordo com o equipamento.",
-    "documentId": "valvula-hidraulica-alta-pressao",
-    "image": "assets/icons/valvulas.webp",
-    "gallery": [
-      "assets/icons/valvulas.webp"
-    ],
-    "status": "disponivel",
-    "statusLabel": "",
-    "indexable": true,
-    "seoTitle": "",
-    "seoDescription": "",
-    "imageAlt": "Válvula Hidráulica de Alta Pressão"
+    "status": "disponivel"
   },
   {
     "id": "unidade-hidraulica-compacta",
@@ -185,61 +181,14 @@ window.ALS_CATALOG_MACHINES = [
     "category": "Unidades Hidráulicas",
     "documentId": "unidade-hidraulica-compacta",
     "image": "assets/imgs/unidades.webp",
+    "seoDescription": "",
+    "indexable": true,
+    "seoTitle": "",
+    "imageAlt": "Unidade Hidráulica Compactasss",
     "gallery": [
       "assets/imgs/unidades.webp"
     ],
-    "status": "disponivel",
     "statusLabel": "",
-    "indexable": true,
-    "seoTitle": "",
-    "seoDescription": "",
-    "imageAlt": "Unidade Hidráulica Compactasss"
-  },
-  {
-    "id": "raspador-de-borracha-industrial",
-    "featured": false,
-    "quantityAvailable": 0,
-    "galleryImageUrls": [
-      "assets/imgs/raspadores.webp"
-    ],
-    "active": true,
-    "commercialStatus": "disponivel",
-    "allowQuote": true,
-    "createdAt": "2026-05-08T13:56:29.389Z",
-    "specs": {
-      "dimensoes": "",
-      "observacoes": "",
-      "tensao": "",
-      "estado": "",
-      "acionamento": "",
-      "ano": "",
-      "peso": "",
-      "aplicacao": "",
-      "capacidade": "",
-      "modelo": ""
-    },
-    "internalNote": "",
-    "quantityReserved": 0,
-    "sortOrder": 4,
-    "name": "Raspador de Borracha Industrial",
-    "destaque": false,
-    "minimumStock": 0,
-    "category": "Raspadores",
-    "mainImageUrl": "assets/imgs/raspadores.webp",
-    "slug": "raspador-de-borracha-industrial",
-    "updatedAt": "2026-05-08T21:14:48.233Z",
-    "shortDescription": "Equipamento para acabamento e processo de raspagem em linhas de borracha, com configuração sob demanda.",
-    "fullDescription": "Raspador de borracha industrial destinado a operações de acabamento, preparação e raspagem em processos produtivos de borracha, com configuração avaliada conforme a aplicação.",
-    "documentId": "raspador-de-borracha-industrial",
-    "image": "assets/imgs/raspadores.webp",
-    "gallery": [
-      "assets/imgs/raspadores.webp"
-    ],
-    "status": "disponivel",
-    "statusLabel": "",
-    "indexable": true,
-    "seoTitle": "",
-    "seoDescription": "",
-    "imageAlt": "Raspador de Borracha Industrial"
+    "status": "disponivel"
   }
 ];
