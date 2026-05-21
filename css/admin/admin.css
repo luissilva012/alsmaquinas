@@ -680,11 +680,40 @@
     transform: none;
 }
 
+.admin-btn.is-loading:disabled {
+    opacity: 0.92;
+}
+
+.admin-btn-spinner {
+    width: 16px;
+    height: 16px;
+    display: none;
+    flex: 0 0 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: admin-btn-spin 0.72s linear infinite;
+}
+
+.admin-btn.is-loading .admin-btn-spinner {
+    display: inline-block;
+}
+
+.admin-btn.is-loading {
+    pointer-events: none;
+}
+
 .admin-btn-content {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+}
+
+@keyframes admin-btn-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .admin-message {

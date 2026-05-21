@@ -107,6 +107,7 @@
     shell: document.querySelector('[data-admin-shell]'),
     loginForm: document.querySelector('[data-login-form]'),
     loginMessage: document.querySelector('[data-login-message]'),
+    loginSubmit: document.querySelector('[data-login-submit]'),
     passwordToggle: document.querySelector('[data-password-toggle]'),
     logout: document.querySelector('[data-admin-logout]'),
     sidebar: document.querySelector('[data-admin-sidebar]'),
@@ -473,8 +474,27 @@
     els.shell.hidden = false;
   };
 
+  const setLoginLoading = (isLoading) => {
+    if (!els.loginSubmit) {
+      return;
+    }
+
+    const label = els.loginSubmit.querySelector('[data-login-submit-label]');
+    els.loginSubmit.disabled = isLoading;
+    els.loginSubmit.classList.toggle('is-loading', isLoading);
+    els.loginSubmit.setAttribute('aria-busy', String(isLoading));
+
+    if (label) {
+      label.textContent = isLoading ? 'Entrando...' : 'Entrar no painel';
+    }
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
+    if (els.loginSubmit?.classList.contains('is-loading')) {
+      return;
+    }
+
     const formData = new FormData(els.loginForm);
     const email = String(formData.get('email') || '').trim();
     const password = String(formData.get('password') || '').trim();
@@ -483,6 +503,8 @@
       showMessage(els.loginMessage, 'Informe e-mail e senha para acessar o painel.', 'error');
       return;
     }
+
+    setLoginLoading(true);
 
     try {
       if (hasRemoteBackend()) {
@@ -497,6 +519,8 @@
       await syncAuthView();
     } catch (error) {
       showMessage(els.loginMessage, getFriendlyErrorMessage(error, 'login'), 'error');
+    } finally {
+      setLoginLoading(false);
     }
   };
 
