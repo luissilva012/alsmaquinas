@@ -1,4 +1,4 @@
-import { getEnv, jsonResponse } from './_shared/firebase-admin-lite.js';
+import { getEnv, getFirebaseAccessToken, jsonResponse } from './_shared/firebase-admin-lite.js';
 
 const fromFirestoreValue = (value) => {
   if (!value || typeof value !== 'object') return null;
@@ -35,17 +35,21 @@ const fromFirestoreDocument = (doc) => {
 
 const handleGet = async ({ env }) => {
   const projectId = getEnv(env, 'FIREBASE_PROJECT_ID');
-  const apiKey = getEnv(env, 'FIREBASE_API_KEY');
+  const accessToken = await getFirebaseAccessToken(env);
 
-  if (!projectId || !apiKey) {
+  if (!projectId || !accessToken) {
     return jsonResponse({ products: [], source: 'firebase-not-configured' });
   }
 
   const url =
     `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(projectId)}` +
-    `/databases/(default)/documents/products?key=${encodeURIComponent(apiKey)}`;
+    '/databases/(default)/documents/products';
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
   if (!response.ok) {
     return jsonResponse({ products: [], source: 'firebase-error' }, 200);
   }

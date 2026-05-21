@@ -11,7 +11,7 @@
 
   const loadProducts = async () => {
     const serverProducts = await loadProductsFromFunction();
-    if (serverProducts.length) return serverProducts;
+    if (serverProducts !== null) return serverProducts;
 
     if (!isConfigured()) return [];
 
@@ -46,13 +46,14 @@
         signal: controller.signal,
       });
 
+      if (response.status === 404) return null;
       if (!response.ok) return [];
 
       const data = await response.json();
       const products = Array.isArray(data.products) ? data.products : [];
       return products.map((product) => normalizeProduct(product, product.slug || product.id));
     } catch (error) {
-      return [];
+      return null;
     } finally {
       window.clearTimeout(timeout);
     }

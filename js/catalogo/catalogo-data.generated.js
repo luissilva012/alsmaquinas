@@ -94,6 +94,53 @@ window.ALS_CATALOG_MACHINES = [
     "status": "disponivel"
   },
   {
+    "id": "teste-mpeyncev",
+    "featured": false,
+    "galleryImageUrls": [
+      "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779335884/als-maquinas/produtos/ldxosqmeeimqo1frhnb1.png"
+    ],
+    "active": true,
+    "shortDescription": "dqadq",
+    "commercialStatus": "disponivel",
+    "fullDescription": "",
+    "allowQuote": true,
+    "createdAt": "2026-05-21T03:58:11.095Z",
+    "specs": {
+      "dimensoes": "",
+      "observacoes": "",
+      "tensao": "",
+      "estado": "",
+      "acionamento": "",
+      "ano": "",
+      "peso": "",
+      "aplicacao": "",
+      "capacidade": "",
+      "modelo": ""
+    },
+    "internalNote": "",
+    "quantityReserved": 0,
+    "sortOrder": 0,
+    "name": "teste",
+    "destaque": false,
+    "documentId": "teste",
+    "minimumStock": 0,
+    "category": "Guilhotinas",
+    "mainImageUrl": "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779335884/als-maquinas/produtos/ldxosqmeeimqo1frhnb1.png",
+    "slug": "teste",
+    "quantityAvailable": 2,
+    "updatedAt": "2026-05-21T03:59:15.787Z",
+    "image": "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779335884/als-maquinas/produtos/ldxosqmeeimqo1frhnb1.png",
+    "gallery": [
+      "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779335884/als-maquinas/produtos/ldxosqmeeimqo1frhnb1.png"
+    ],
+    "status": "disponivel",
+    "statusLabel": "",
+    "indexable": true,
+    "seoTitle": "",
+    "seoDescription": "",
+    "imageAlt": "teste"
+  },
+  {
     "id": "prensa-hidraulica-100-toneladas",
     "featured": false,
     "quantityAvailable": 1,

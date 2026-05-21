@@ -115,6 +115,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://alsmaquinas.com.br/catalogo/maquinas/teste/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://alsmaquinas.com.br/catalogo/maquinas/prensa-hidraulica-100-toneladas/</loc>
     <lastmod>2026-05-21</lastmod>
     <changefreq>weekly</changefreq>
