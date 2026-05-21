@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Página não encontrada | ALS Máquinas</title>
+    <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: #f3f3f5;
+        color: #080b14;
+        font-family: Figtree, Arial, sans-serif;
+      }
+
+      .not-found {
+        width: min(100% - 48px, 760px);
+        padding: 56px;
+        border: 1px solid #dedfe4;
+        border-radius: 8px;
+        background: #fff;
+        text-align: left;
+      }
+
+      .not-found__eyebrow {
+        margin: 0 0 14px;
+        color: #d70826;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .not-found h1 {
+        margin: 0 0 18px;
+        max-width: 620px;
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 0.98;
+        font-weight: 800;
+      }
+
+      .not-found p {
+        margin: 0 0 32px;
+        max-width: 560px;
+        color: #5f6572;
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .not-found__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .not-found__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 24px;
+        border: 1px solid #dedfe4;
+        border-radius: 8px;
+        color: #080b14;
+        font-size: 15px;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .not-found__button--primary {
+        border-color: #d70826;
+        background: #d70826;
+        color: #fff;
+      }
+
+      @media (max-width: 640px) {
+        .not-found {
+          width: min(100% - 32px, 480px);
+          padding: 36px 24px;
+        }
+
+        .not-found__actions {
+          flex-direction: column;
+        }
+
+        .not-found__button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="not-found" aria-labelledby="not-found-title">
+      <p class="not-found__eyebrow">Erro 404</p>
+      <h1 id="not-found-title">Página não encontrada.</h1>
+      <p>
+        O endereço acessado não existe mais ou foi removido do catálogo ALS.
+        Acesse o catálogo para consultar os equipamentos disponíveis.
+      </p>
+      <div class="not-found__actions">
+        <a class="not-found__button not-found__button--primary" href="/catalogo/">Ver catálogo</a>
+        <a class="not-found__button" href="/">Voltar ao início</a>
+      </div>
+    </main>
+  </body>
+</html>
