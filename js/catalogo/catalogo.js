@@ -627,7 +627,7 @@
       : '';
     const canQuote = allowsQuote(machine);
     const actionButton = canQuote
-      ? `<button class="catalog-btn primary machine-cart-btn" type="button" data-add-quote="${machineId}" aria-label="Adicionar ${machineName} ao carrinho">
+      ? `<button class="catalog-btn primary machine-cart-btn" type="button" data-add-quote="${machineId}" aria-label="Adicionar ${machineName} ao carrinho" title="Adicionar ao carrinho">
           <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
             <path d="M8 10h9.4a4 4 0 0 1 3.9 3.2L22.5 19H54a4 4 0 0 1 3.9 4.8l-4.7 22A5 5 0 0 1 48.3 50H25.2a5 5 0 0 1-4.9-4L14 16H8a3 3 0 0 1 0-6Zm17.1 34h22.2l3.9-19H23.8l1.3 19ZM25 60a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm23 0a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" />
           </svg>
