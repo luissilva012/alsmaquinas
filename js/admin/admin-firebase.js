@@ -282,24 +282,7 @@
     );
   };
 
-  const fetchFunctionEndpoint = async (name, options = {}) => {
-    const endpoints = [`/${name}`, `/.netlify/functions/${name}`];
-    let lastResponse = null;
-    let lastError = null;
-
-    for (const endpoint of endpoints) {
-      try {
-        const response = await fetch(endpoint, options);
-        if (response.status !== 404) return response;
-        lastResponse = response;
-      } catch (error) {
-        lastError = error;
-      }
-    }
-
-    if (lastResponse) return lastResponse;
-    throw lastError || new Error('function_unavailable');
-  };
+  const fetchFunctionEndpoint = (name, options = {}) => fetch(`/${name}`, options);
 
   window.ALSAdminBackend = {
     isConfigured: () => true,

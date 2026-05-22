@@ -71,9 +71,7 @@ const handlePost = async ({ request, env }) => {
     return jsonResponse({ error: 'Unauthorized' }, 401);
   }
 
-  const hookUrl =
-    getEnv(env, 'CLOUDFLARE_DEPLOY_HOOK_URL')
-    || getEnv(env, 'NETLIFY_BUILD_HOOK_URL');
+  const hookUrl = getEnv(env, 'CLOUDFLARE_DEPLOY_HOOK_URL');
 
   if (!hookUrl) {
     return jsonResponse({

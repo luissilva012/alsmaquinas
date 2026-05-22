@@ -3,6 +3,7 @@
 ## Build
 
 - Framework preset: `None`
+- Production branch: `main`
 - Build command: `npm run build`
 - Build output directory: `.`
 - Node version: `20`
@@ -28,14 +29,20 @@ CLOUDFLARE_DEPLOY_HOOK_URL=
 3. Crie um Deploy Hook para a branch `main`.
 4. Copie a URL para `CLOUDFLARE_DEPLOY_HOOK_URL`.
 
+## Desenvolvimento local
+
+1. Preencha `.env` a partir de `.env.example`.
+2. Rode `npm run dev`.
+3. Use `npm run build` antes de publicar para exportar o catalogo, gerar paginas e validar a configuracao.
+
 ## Validacao
 
-Antes de apontar o dominio principal:
+Antes de publicar alteracoes na branch principal:
 
-1. Teste o dominio `.pages.dev`.
+1. Teste o dominio `.pages.dev` ou um preview do Cloudflare Pages.
 2. Acesse `/catalogo/`.
 3. Acesse uma pagina em `/catalogo/maquinas/slug/`.
-4. Faça login no admin.
+4. Faca login no admin.
 5. Envie uma imagem.
 6. Edite uma maquina e publique.
 7. Aguarde o build finalizar.
