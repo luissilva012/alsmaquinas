@@ -32,8 +32,9 @@ CLOUDFLARE_DEPLOY_HOOK_URL=
 ## Desenvolvimento local
 
 1. Preencha `.env` a partir de `.env.example`.
-2. Rode `npm run dev`.
-3. Use `npm run build` antes de publicar para exportar o catalogo, gerar paginas e validar a configuracao.
+2. Rode `npm run dev`. Esse comando exporta o catalogo do Firebase, gera as paginas estaticas locais e sobe o Pages local.
+3. Depois de criar, editar ou remover um produto pelo admin local, rode `npm run build` ou reinicie `npm run dev` para atualizar as rotas estaticas locais antes de abrir a URL direta do produto.
+4. Use `npm run build` antes de publicar para exportar o catalogo, gerar paginas e validar a configuracao.
 
 ## Validacao
 

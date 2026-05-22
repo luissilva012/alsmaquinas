@@ -1,6 +1,6 @@
 {
   "siteUrl": "https://alsmaquinas.com.br",
-  "updatedAt": "2026-05-21",
+  "updatedAt": "2026-05-22",
   "machines": [
     {
       "id": "prensa-hidraulica-100-toneladas",
@@ -48,6 +48,59 @@
       ],
       "statusLabel": "",
       "status": "disponivel"
+    },
+    {
+      "id": "prensa-hidraulica-para-piso-de-borracha-mpg37h4s",
+      "featured": true,
+      "quantityAvailable": 0,
+      "galleryImageUrls": [
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403536/als-maquinas/produtos/djakh5dhjdq3tnnpexpj.png",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403548/als-maquinas/produtos/qr1xzpzsjnjnvl1qgdh5.jpg",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403554/als-maquinas/produtos/beu2wrwyf2dhpc3ifkpv.jpg",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403566/als-maquinas/produtos/ihezkhm3eigweomlvhx6.jpg"
+      ],
+      "active": true,
+      "commercialStatus": "disponivel",
+      "allowQuote": true,
+      "createdAt": "2026-05-21T22:53:34.972Z",
+      "internalNote": "",
+      "quantityReserved": 0,
+      "sortOrder": 0,
+      "name": "Prensa Hidráulica para Piso de Borracha",
+      "destaque": true,
+      "documentId": "prensa-hidraulica-para-piso-de-borracha",
+      "minimumStock": 0,
+      "category": "Prensas Hidráulicas",
+      "mainImageUrl": "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403536/als-maquinas/produtos/djakh5dhjdq3tnnpexpj.png",
+      "slug": "prensa-hidraulica-para-piso-de-borracha",
+      "image": "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403536/als-maquinas/produtos/djakh5dhjdq3tnnpexpj.png",
+      "seoDescription": "",
+      "indexable": true,
+      "shortDescription": "Equipamento robusto para vulcanização e moldagem de pisos emborrachados.",
+      "fullDescription": "Prensa hidráulica desenvolvida para fabricação de pisos de borracha de 1,00 x 1,00m, com alta eficiência, robustez e excelente desempenho operacional. Possui estrutura reforçada, sistema hidráulico de alta performance e painel de comando lateral, garantindo precisão, segurança e produtividade no processo de prensagem. Ideal para produção de pisos reciclados, placas e artefatos em borracha, oferecendo durabilidade, baixa manutenção e confiabilidade industrial.",
+      "seoTitle": "",
+      "imageAlt": "Prensa Hidráulica para Piso de Borracha",
+      "gallery": [
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403536/als-maquinas/produtos/djakh5dhjdq3tnnpexpj.png",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403548/als-maquinas/produtos/qr1xzpzsjnjnvl1qgdh5.jpg",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403554/als-maquinas/produtos/beu2wrwyf2dhpc3ifkpv.jpg",
+        "https://res.cloudinary.com/dooprpnho/image/upload/f_auto,q_auto:best/v1779403566/als-maquinas/produtos/ihezkhm3eigweomlvhx6.jpg"
+      ],
+      "statusLabel": "",
+      "status": "disponivel",
+      "specs": {
+        "dimensoes": "1000 x 1000 mm",
+        "observacoes": "Especificações técnicas sob validação conforme aplicação e configuração do equipamento.",
+        "tensao": "",
+        "estado": "Nova",
+        "acionamento": "",
+        "ano": "",
+        "peso": "",
+        "capacidade": "4 vãos",
+        "modelo": "",
+        "aplicacao": "Fabricação de pisos de borracha de 1,00 x 1,00m."
+      },
+      "updatedAt": "2026-05-21T22:57:42.178Z"
     },
     {
       "id": "misturador-de-borracha-75cv",
@@ -114,7 +167,6 @@
       "minimumStock": 0,
       "mainImageUrl": "assets/imgs/unidades.webp",
       "slug": "unidade-hidraulica-compacta",
-      "updatedAt": "2026-05-19T14:01:18.818Z",
       "specs": {
         "dimensoes": "",
         "observacoes": "",
@@ -131,7 +183,6 @@
         "Disponibilidade": "Disponível",
         "Condi&ccedil;&atilde;o": "Sob validação técnica"
       },
-      "name": "Unidade Hidráulica Compactasss",
       "shortDescription": "Conjunto hidráulico para integração em prensas e sistemas industriais com controle de pressão e vazão.",
       "fullDescription": "Unidade hidráulica compacta para integração em prensas, equipamentos industriais e sistemas que demandam controle de pressão, vazão e confiabilidade de acionamento.",
       "category": "Unidades Hidráulicas",
@@ -145,7 +196,9 @@
         "assets/imgs/unidades.webp"
       ],
       "statusLabel": "",
-      "status": "disponivel"
+      "status": "disponivel",
+      "name": "Unidade Hidráulica Compacta",
+      "updatedAt": "2026-05-22T00:47:05.766Z"
     },
     {
       "id": "raspador-de-borracha-industrial",
@@ -196,5 +249,5 @@
     }
   ],
   "source": "firebase",
-  "exportedAt": "2026-05-21T14:59:03.321Z"
+  "exportedAt": "2026-05-22T04:45:11.080Z"
 }

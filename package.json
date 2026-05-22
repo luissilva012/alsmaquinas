@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx -y wrangler pages dev . --compatibility-date=2026-05-20",
+    "dev": "npm run build && npx -y wrangler pages dev . --compatibility-date=2026-05-20",
     "build": "node scripts/generate-runtime-config.js && node scripts/export-firebase-catalog.js && node scripts/generate-catalog-pages.js",
     "catalog:generate": "node scripts/generate-catalog-pages.js",
     "config:generate": "node scripts/generate-runtime-config.js",
