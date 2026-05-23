@@ -95,15 +95,19 @@
     return `${prefix}f_auto,q_auto:best/${suffix}`;
   };
 
+  const normalizeGalleryValues = (gallery) => {
+    if (Array.isArray(gallery)) return gallery;
+    return String(gallery || '')
+      .split(/\r?\n|,/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  };
+
   const normalizeGallery = (gallery, image) => {
-    const values = Array.isArray(gallery)
-      ? gallery
-      : String(gallery || '')
-          .split(/\r?\n|,/)
-          .map((item) => item.trim());
+    const values = normalizeGalleryValues(gallery);
     const unique = [];
 
-    [image, ...values].forEach((item) => {
+    [...values, image].forEach((item) => {
       const value = optimizeCloudinaryUrl(item);
       if (value && !unique.includes(value)) unique.push(value);
     });
@@ -124,10 +128,12 @@
   const normalizeProduct = (product = {}, documentId = '') => {
     const rawSlug = product.slug || documentId || product.id || product.name || '';
     const slug = slugify(rawSlug);
+    const gallerySource = product.galleryImageUrls || product.gallery || product.images;
+    const firstGalleryImage = normalizeGalleryValues(gallerySource)[0] || '';
     const image = optimizeCloudinaryUrl(
-      product.mainImageUrl || product.image || product.primaryImage || '',
+      firstGalleryImage || product.mainImageUrl || product.image || product.primaryImage || '',
     );
-    const gallery = normalizeGallery(product.galleryImageUrls || product.gallery || product.images, image);
+    const gallery = normalizeGallery(gallerySource, image);
     const status = getMachineStatus(product);
 
     return {

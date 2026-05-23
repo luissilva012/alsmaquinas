@@ -18,16 +18,6 @@
     ? window.firebase.app()
     : window.firebase.initializeApp(firebaseConfig);
   const auth = window.firebase.auth(app);
-  const db = window.firebase.firestore(app);
-  try {
-    db.settings({
-      experimentalAutoDetectLongPolling: true,
-      useFetchStreams: false,
-    });
-  } catch (error) {
-    // Firestore settings must run before the first operation. If another script already
-    // touched Firestore, keep the default transport and rely on the server function.
-  }
   let currentUser = null;
   let publishTimer = null;
 
@@ -38,90 +28,42 @@
     });
   });
 
-  const collectionToArray = async (collectionName) => {
-    const snapshot = await db.collection(collectionName).get();
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...fromFirestoreData(doc.data()) }));
+  const fetchFunctionEndpoint = (name, options = {}) => fetch(`/${name}`, options);
+
+  const readErrorMessage = async (response, fallback) => {
+    try {
+      const contentType = response.headers.get('Content-Type') || '';
+      if (!contentType.includes('application/json')) return fallback;
+
+      const data = await response.json();
+      return data.message || data.error?.message || data.error || fallback;
+    } catch (error) {
+      return fallback;
+    }
   };
 
-  const fromFirestoreData = (value) => {
-    if (Array.isArray(value)) return value.map(fromFirestoreData);
-    if (!value || typeof value !== 'object') return value;
-    if (typeof value.toDate === 'function') return value.toDate().toISOString();
-
-    return Object.fromEntries(
-      Object.entries(value).map(([key, entry]) => [key, fromFirestoreData(entry)]),
-    );
+  const getIdToken = async () => {
+    const idToken = await currentUser?.getIdToken();
+    if (!idToken) throw new Error('Sessao administrativa expirada. Faca login novamente.');
+    return idToken;
   };
 
   const loadAllFromFunction = async () => {
-    const idToken = await currentUser?.getIdToken();
-    if (!idToken) throw new Error('Sess&atilde;o administrativa expirada.');
-
+    const idToken = await getIdToken();
     const response = await fetchFunctionEndpoint('admin-catalog', {
       headers: {
         Authorization: `Bearer ${idToken}`,
       },
     });
 
-    if (response.status === 404) return null;
-    if (!response.ok) throw new Error('N&atilde;o foi poss&iacute;vel carregar o cat&aacute;logo.');
+    if (!response.ok) {
+      throw new Error(await readErrorMessage(response, 'Nao foi possivel carregar o catalogo.'));
+    }
 
     return response.json();
   };
 
-  const loadAllDirect = async () => {
-    const [machines, categories, settingsDoc] = await Promise.all([
-      collectionToArray('products'),
-      collectionToArray('categories'),
-      db.collection('site_settings').doc('catalog').get(),
-    ]);
-
-    return {
-      machines,
-      categories,
-      settings: settingsDoc.exists ? fromFirestoreData(settingsDoc.data()) : null,
-    };
-  };
-
-  const loadAll = async () => {
-    try {
-      const data = await loadAllFromFunction();
-      if (data) return data;
-    } catch (error) {
-      if (!isFunctionFallbackAllowed(error)) throw error;
-    }
-
-    return loadAllDirect();
-  };
-
-  const WRITE_BATCH_LIMIT = 450;
-
-  const persistAll = async ({
-    machines = [],
-    categories = [],
-    settings = {},
-    deletedProducts = [],
-    deletedCategories = [],
-    triggerBuild = true,
-  }) => {
-    try {
-      const saved = await persistAllFromFunction({
-        machines,
-        categories,
-        settings,
-        deletedProducts,
-        deletedCategories,
-      });
-      if (!saved) {
-        await persistAllDirect({ machines, categories, settings, deletedProducts, deletedCategories });
-      }
-    } catch (error) {
-      if (!isFunctionFallbackAllowed(error)) throw error;
-      await persistAllDirect({ machines, categories, settings, deletedProducts, deletedCategories });
-    }
-
-    if (triggerBuild) scheduleCatalogPublish();
-  };
+  const loadAll = async () => loadAllFromFunction();
 
   const persistAllFromFunction = async ({
     machines = [],
@@ -130,9 +72,7 @@
     deletedProducts = [],
     deletedCategories = [],
   }) => {
-    const idToken = await currentUser?.getIdToken();
-    if (!idToken) throw new Error('Sess&atilde;o administrativa expirada.');
-
+    const idToken = await getIdToken();
     const response = await fetchFunctionEndpoint('admin-catalog', {
       method: 'POST',
       headers: {
@@ -148,89 +88,28 @@
       }),
     });
 
-    if (response.status === 404) return false;
-
     if (!response.ok) {
-      const message = await readErrorMessage(response, 'N&atilde;o foi poss&iacute;vel salvar as altera&ccedil;&otilde;es.');
-      throw new Error(message);
+      throw new Error(await readErrorMessage(response, 'Nao foi possivel salvar as alteracoes.'));
     }
-
-    return true;
   };
 
-  const persistAllDirect = async ({
+  const persistAll = async ({
     machines = [],
     categories = [],
     settings = {},
     deletedProducts = [],
     deletedCategories = [],
+    triggerBuild = true,
   }) => {
-    await Promise.all([
-      syncCollection('products', machines, deletedProducts),
-      syncCollection('categories', categories, deletedCategories),
-      db.collection('site_settings').doc('catalog').set(cleanPayload(settings), { merge: true }),
-    ]);
-  };
-
-  const isFunctionFallbackAllowed = (error) =>
-    error?.name === 'AbortError'
-    || /Failed to fetch|NetworkError|404/i.test(String(error?.message || ''));
-
-  const syncCollection = async (collectionName, items, deletedIds = []) => {
-    const collection = db.collection(collectionName);
-    const nextIds = new Set(items.map((item) => getDocumentId(item)).filter(Boolean));
-    const operations = [];
-
-    deletedIds
-      .map((id) => String(id || '').trim())
-      .filter((id) => id && !nextIds.has(id))
-      .forEach((id) => {
-        operations.push({ type: 'delete', ref: collection.doc(id) });
-      });
-
-    items.forEach((item, index) => {
-      const id = getDocumentId(item);
-      if (!id) return;
-      operations.push({
-        type: 'set',
-        ref: collection.doc(id),
-        data: cleanPayload({
-          ...item,
-          id: item.id || id,
-          documentId: id,
-          sortOrder: Number.isFinite(Number(item.sortOrder)) ? Number(item.sortOrder) : index,
-        }),
-      });
+    await persistAllFromFunction({
+      machines,
+      categories,
+      settings,
+      deletedProducts,
+      deletedCategories,
     });
 
-    await commitOperations(operations);
-  };
-
-  const commitOperations = async (operations) => {
-    for (let index = 0; index < operations.length; index += WRITE_BATCH_LIMIT) {
-      const batch = db.batch();
-      operations.slice(index, index + WRITE_BATCH_LIMIT).forEach((operation) => {
-        if (operation.type === 'delete') {
-          batch.delete(operation.ref);
-          return;
-        }
-        batch.set(operation.ref, operation.data, { merge: true });
-      });
-      await batch.commit();
-    }
-  };
-
-  const getDocumentId = (item) => String(item?.slug || item?.id || '').trim();
-
-  const cleanPayload = (value) => {
-    if (Array.isArray(value)) return value.map(cleanPayload);
-    if (!value || typeof value !== 'object') return value ?? null;
-
-    return Object.fromEntries(
-      Object.entries(value)
-        .filter(([, entry]) => entry !== undefined)
-        .map(([key, entry]) => [key, cleanPayload(entry)]),
-    );
+    if (triggerBuild) scheduleCatalogPublish();
   };
 
   const signIn = async (email, password) => {
@@ -238,7 +117,7 @@
     const hasAccess = await verifyAdminAccess(credential.user);
     if (!hasAccess) {
       await auth.signOut();
-      throw new Error('Usu&aacute;rio sem permiss&atilde;o administrativa.');
+      throw new Error('Usuario sem permissao administrativa.');
     }
     currentUser = credential.user;
     return getCurrentUser();
@@ -254,15 +133,10 @@
           Authorization: `Bearer ${idToken}`,
         },
       });
-
-      if (response.ok) return true;
-      if (response.status !== 404) return false;
+      return response.ok;
     } catch (error) {
-      if (!isFunctionFallbackAllowed(error)) return false;
+      return false;
     }
-
-    const adminDoc = await db.collection('admins').doc(user.uid).get();
-    return adminDoc.exists && adminDoc.data()?.active === true;
   };
 
   const signOut = async () => {
@@ -279,11 +153,7 @@
       : null;
 
   const uploadImage = async (file) => {
-    const idToken = await currentUser?.getIdToken();
-    if (!idToken) {
-      throw new Error('Sess&atilde;o administrativa expirada. Fa&ccedil;a login novamente para enviar imagens.');
-    }
-
+    const idToken = await getIdToken();
     const signatureResponse = await fetchFunctionEndpoint('cloudinary-signature', {
       method: 'POST',
       headers: {
@@ -294,13 +164,9 @@
     });
 
     if (!signatureResponse.ok) {
-      const message = await readErrorMessage(
-        signatureResponse,
-        signatureResponse.status === 404
-          ? 'Servi&ccedil;o de envio indispon&iacute;vel neste ambiente.'
-          : 'N&atilde;o foi poss&iacute;vel autorizar o envio da imagem.',
+      throw new Error(
+        await readErrorMessage(signatureResponse, 'Nao foi possivel autorizar o envio da imagem.'),
       );
-      throw new Error(message);
     }
 
     const signature = await signatureResponse.json();
@@ -321,28 +187,13 @@
     );
 
     if (!uploadResponse.ok) {
-      const message = await readErrorMessage(uploadResponse, 'Cloudinary recusou o envio da imagem.');
-      throw new Error(message);
+      throw new Error(await readErrorMessage(uploadResponse, 'Nao foi possivel enviar a imagem.'));
     }
 
     const data = await uploadResponse.json();
     const url = data.secure_url || data.url;
-    if (!url) throw new Error('Cloudinary response without URL');
+    if (!url) throw new Error('Nao foi possivel concluir o envio da imagem.');
     return getOptimizedCloudinaryUrl(url);
-  };
-
-  const readErrorMessage = async (response, fallback) => {
-    try {
-      const contentType = response.headers.get('Content-Type') || '';
-      if (contentType.includes('application/json')) {
-        const data = await response.json();
-        return data.error?.message || data.error || data.message || fallback;
-      }
-      const text = await response.text();
-      return text ? `${fallback} ${text.slice(0, 160)}` : fallback;
-    } catch (error) {
-      return fallback;
-    }
   };
 
   const getOptimizedCloudinaryUrl = (url) => {
@@ -358,7 +209,7 @@
   };
 
   const runCatalogPublish = async () => {
-    notifyPublish('As alterações foram salvas. Atualizando o site...', 'loading');
+    notifyPublish('Alteracoes salvas. Atualizando o site...', 'loading');
 
     try {
       const idToken = await currentUser?.getIdToken();
@@ -367,29 +218,27 @@
         headers: idToken ? { Authorization: `Bearer ${idToken}` } : {},
       });
 
-      if (!response.ok) {
-        throw new Error('publish_failed');
-      }
+      if (!response.ok) throw new Error('publish_failed');
 
       const data = await response.json().catch(() => ({}));
 
       if (data.skipped && data.reason === 'Build hook cooldown') {
-        notifyPublish('As alterações foram salvas. A atualização do site já está em andamento.', 'success');
+        notifyPublish('Alteracoes salvas. A atualizacao do site ja esta em andamento.', 'success');
         return;
       }
 
       if (data.skipped) {
         notifyPublish(
-          'As alterações foram salvas. Configure a publicação automática para atualizar o site.',
+          'Alteracoes salvas. Configure a publicacao automatica para atualizar o site.',
           'error',
         );
         return;
       }
 
-      notifyPublish('Alterações salvas. O site está sendo atualizado.', 'success');
+      notifyPublish('Alteracoes salvas. O site esta sendo atualizado.', 'success');
     } catch (error) {
       notifyPublish(
-        'Alterações salvas, mas não foi possível iniciar a atualização automática do site.',
+        'Alteracoes salvas, mas nao foi possivel iniciar a atualizacao automatica do site.',
         'error',
       );
     }
@@ -402,8 +251,6 @@
       }),
     );
   };
-
-  const fetchFunctionEndpoint = (name, options = {}) => fetch(`/${name}`, options);
 
   window.ALSAdminBackend = {
     isConfigured: () => true,

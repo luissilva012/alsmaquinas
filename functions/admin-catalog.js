@@ -162,9 +162,9 @@ const collectionDocumentName = (env, collectionName, documentId) => {
 
 const getItemDocumentId = (item) => String(item?.slug || item?.id || '').trim();
 
-const normalizeImageUrlList = (urls = [], primaryUrl = '') => {
+const normalizeImageUrlList = (urls = [], fallbackUrl = '') => {
   const unique = [];
-  [primaryUrl, ...urls].forEach((item) => {
+  [...urls, fallbackUrl].forEach((item) => {
     const value = String(item || '').trim();
     if (value && !unique.includes(value)) unique.push(value);
   });
@@ -172,16 +172,16 @@ const normalizeImageUrlList = (urls = [], primaryUrl = '') => {
 };
 
 const normalizeProductForWrite = (item = {}) => {
-  const mainImageUrl = String(item.mainImageUrl || item.image || item.primaryImage || '').trim();
+  const fallbackImageUrl = String(item.mainImageUrl || item.image || item.primaryImage || '').trim();
   const galleryImageUrls = normalizeImageUrlList(
     [
       ...(Array.isArray(item.galleryImageUrls) ? item.galleryImageUrls : []),
       ...(Array.isArray(item.gallery) ? item.gallery : []),
       ...(Array.isArray(item.images) ? item.images : []),
     ],
-    mainImageUrl,
+    fallbackImageUrl,
   );
-  const primaryImage = galleryImageUrls[0] || mainImageUrl;
+  const primaryImage = galleryImageUrls[0] || fallbackImageUrl;
 
   return {
     ...item,

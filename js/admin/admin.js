@@ -1338,6 +1338,16 @@
 
   const handleSave = async (event) => {
     event.preventDefault();
+    if (state.images.some((image) => image.status === 'uploading')) {
+      showMessage(els.formMessage, 'Aguarde a imagem terminar de carregar antes de salvar.', 'loading');
+      return;
+    }
+
+    if (state.images.some((image) => image.status === 'error')) {
+      showMessage(els.formMessage, 'Remova ou envie novamente a imagem com falha antes de salvar.', 'error');
+      return;
+    }
+
     syncImageFields();
     const data = getFormValues();
     const validation = validateMachine(data);
@@ -2167,7 +2177,7 @@
 
   const normalizeImageUrlList = (urls = [], primaryUrl = '') => {
     const unique = [];
-    [primaryUrl, ...urls].forEach((item) => {
+    [...urls, primaryUrl].forEach((item) => {
       const value = String(item || '').trim();
       if (value && !unique.includes(value)) unique.push(value);
     });
