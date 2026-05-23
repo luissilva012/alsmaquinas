@@ -615,7 +615,7 @@
     const statusClass = statusClassMap[machine.status] || 'status-consult';
     const machineId = escapeAttr(machine.id);
     const machineName = displayText(machine.name);
-    const machineImage = escapeAttr(machine.image || 'assets/imgs/portfolio.webp');
+    const machineImage = escapeAttr(machine.mainImageUrl || machine.image || 'assets/imgs/portfolio.webp');
     const machineDescription = displayText(machine.shortDescription);
     const machineFeatures = renderCardFeatures(machine);
     const detailUrl = String(machine.detailUrl || '').trim();

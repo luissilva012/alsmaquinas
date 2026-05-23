@@ -162,6 +162,37 @@ const collectionDocumentName = (env, collectionName, documentId) => {
 
 const getItemDocumentId = (item) => String(item?.slug || item?.id || '').trim();
 
+const normalizeImageUrlList = (urls = [], primaryUrl = '') => {
+  const unique = [];
+  [primaryUrl, ...urls].forEach((item) => {
+    const value = String(item || '').trim();
+    if (value && !unique.includes(value)) unique.push(value);
+  });
+  return unique;
+};
+
+const normalizeProductForWrite = (item = {}) => {
+  const mainImageUrl = String(item.mainImageUrl || item.image || item.primaryImage || '').trim();
+  const galleryImageUrls = normalizeImageUrlList(
+    [
+      ...(Array.isArray(item.galleryImageUrls) ? item.galleryImageUrls : []),
+      ...(Array.isArray(item.gallery) ? item.gallery : []),
+      ...(Array.isArray(item.images) ? item.images : []),
+    ],
+    mainImageUrl,
+  );
+  const primaryImage = galleryImageUrls[0] || mainImageUrl;
+
+  return {
+    ...item,
+    image: primaryImage,
+    mainImageUrl: primaryImage,
+    gallery: galleryImageUrls,
+    galleryImageUrls,
+    imageAlt: item.imageAlt || item.name || '',
+  };
+};
+
 const buildCollectionWrites = (env, collectionName, items = [], deletedIds = []) => {
   const nextIds = new Set(items.map(getItemDocumentId).filter(Boolean));
   const writes = [];
@@ -178,15 +209,18 @@ const buildCollectionWrites = (env, collectionName, items = [], deletedIds = [])
   items.forEach((item, index) => {
     const id = getItemDocumentId(item);
     if (!id) return;
+    const writableItem = collectionName === 'products' ? normalizeProductForWrite(item) : item;
 
     writes.push({
       update: {
         name: collectionDocumentName(env, collectionName, id),
         fields: toFirestoreFields({
-          ...item,
-          id: item.id || id,
+          ...writableItem,
+          id: writableItem.id || id,
           documentId: id,
-          sortOrder: Number.isFinite(Number(item.sortOrder)) ? Number(item.sortOrder) : index,
+          sortOrder: Number.isFinite(Number(writableItem.sortOrder))
+            ? Number(writableItem.sortOrder)
+            : index,
         }),
       },
     });

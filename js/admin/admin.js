@@ -1393,6 +1393,14 @@
     const data = new FormData(els.form);
     const slug = String(data.get('slug') || '').trim();
     const name = String(data.get('name') || '').trim();
+    const mainImageUrl = String(data.get('mainImageUrl') || '').trim();
+    const galleryImageUrls = normalizeImageUrlList(
+      String(data.get('galleryImageUrls') || '')
+        .split('\n')
+        .map((item) => item.trim())
+        .filter(Boolean),
+      mainImageUrl,
+    );
 
     return {
       name,
@@ -1400,11 +1408,10 @@
       category: String(data.get('category') || '').trim(),
       shortDescription: String(data.get('shortDescription') || '').trim(),
       fullDescription: String(data.get('fullDescription') || '').trim(),
-      mainImageUrl: String(data.get('mainImageUrl') || '').trim(),
-      galleryImageUrls: String(data.get('galleryImageUrls') || '')
-        .split('\n')
-        .map((item) => item.trim())
-        .filter(Boolean),
+      image: mainImageUrl,
+      mainImageUrl,
+      gallery: galleryImageUrls,
+      galleryImageUrls,
       specs: {
         modelo: String(data.get('modelo') || '').trim(),
         capacidade: String(data.get('capacidade') || '').trim(),
@@ -2158,10 +2165,24 @@
     renderImageGallery();
   };
 
-  const getMachineImages = (machine) => [
-    machine.mainImageUrl,
-    ...(Array.isArray(machine.galleryImageUrls) ? machine.galleryImageUrls : []),
-  ];
+  const normalizeImageUrlList = (urls = [], primaryUrl = '') => {
+    const unique = [];
+    [primaryUrl, ...urls].forEach((item) => {
+      const value = String(item || '').trim();
+      if (value && !unique.includes(value)) unique.push(value);
+    });
+    return unique;
+  };
+
+  const getMachineImages = (machine) =>
+    normalizeImageUrlList(
+      [
+        ...(Array.isArray(machine.galleryImageUrls) ? machine.galleryImageUrls : []),
+        ...(Array.isArray(machine.gallery) ? machine.gallery : []),
+        ...(Array.isArray(machine.images) ? machine.images : []),
+      ],
+      machine.mainImageUrl || machine.image || machine.primaryImage || '',
+    );
 
   const syncImageFields = () => {
     const readyImages = state.images.filter((image) => image.url && image.status === 'ready');
@@ -3249,9 +3270,16 @@
           ? catalogNormalizer.normalizeProduct(decoded, decoded.slug || decoded.id)
           : decoded;
       const featured = isFeaturedMachine(normalized);
+      const galleryImageUrls = getMachineImages(normalized);
+      const mainImageUrl = galleryImageUrls[0] || '';
       return {
         ...decoded,
         ...normalized,
+        image: mainImageUrl,
+        mainImageUrl,
+        gallery: galleryImageUrls,
+        galleryImageUrls,
+        imageAlt: normalized.imageAlt || normalized.name || '',
         featured,
         destaque: featured,
       };

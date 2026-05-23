@@ -125,9 +125,9 @@
     const rawSlug = product.slug || documentId || product.id || product.name || '';
     const slug = slugify(rawSlug);
     const image = optimizeCloudinaryUrl(
-      product.image || product.mainImageUrl || product.primaryImage || '',
+      product.mainImageUrl || product.image || product.primaryImage || '',
     );
-    const gallery = normalizeGallery(product.gallery || product.galleryImageUrls || product.images, image);
+    const gallery = normalizeGallery(product.galleryImageUrls || product.gallery || product.images, image);
     const status = getMachineStatus(product);
 
     return {

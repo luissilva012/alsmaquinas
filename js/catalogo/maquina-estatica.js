@@ -943,7 +943,7 @@
       button.dataset.quoteName = decodeHtml(product.name || '');
       button.dataset.quoteCategory = decodeHtml(product.category || '');
       button.dataset.quoteSlug = product.slug || '';
-      button.dataset.quoteImage = product.image || product.mainImageUrl || '';
+      button.dataset.quoteImage = product.mainImageUrl || product.image || '';
     });
   };
 
@@ -1042,12 +1042,12 @@
   };
 
   const getProductGallery = (product) => {
-    const gallery = Array.isArray(product.gallery)
-      ? product.gallery
-      : Array.isArray(product.galleryImageUrls)
-        ? product.galleryImageUrls
+    const gallery = Array.isArray(product.galleryImageUrls)
+      ? product.galleryImageUrls
+      : Array.isArray(product.gallery)
+        ? product.gallery
         : [];
-    const image = product.image || product.mainImageUrl || '';
+    const image = product.mainImageUrl || product.image || '';
     const unique = [];
 
     [image, ...gallery].forEach((item) => {

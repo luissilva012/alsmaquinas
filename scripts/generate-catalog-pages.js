@@ -192,7 +192,7 @@ const specOrder = [
 const getMachineStatus = (machine) => machine.status || machine.commercialStatus || 'sob-consulta';
 const getMachineStatusLabel = (machine) =>
   machine.statusLabel || statusLabelMap[getMachineStatus(machine)] || 'Sob consulta';
-const getMachineImage = (machine) => machine.image || machine.mainImageUrl || 'assets/imgs/portfolio.webp';
+const getMachineImage = (machine) => machine.mainImageUrl || machine.image || 'assets/imgs/portfolio.webp';
 const getMachineShortDescription = (machine) =>
   machine.shortDescription || machine.fullDescription || 'Equipamento industrial sob consulta com valida&ccedil;&atilde;o t&eacute;cnica ALS.';
 const getMachineFullDescription = (machine) => machine.fullDescription || getMachineShortDescription(machine);
@@ -274,10 +274,10 @@ const getProductBenefitItems = (machine) => {
 };
 
 const getGallery = (machine) => {
-  const imageList = Array.isArray(machine.gallery)
-    ? machine.gallery
-    : Array.isArray(machine.galleryImageUrls)
-      ? machine.galleryImageUrls
+  const imageList = Array.isArray(machine.galleryImageUrls)
+    ? machine.galleryImageUrls
+    : Array.isArray(machine.gallery)
+      ? machine.gallery
       : [];
   const gallery = [getMachineImage(machine), ...imageList].filter(Boolean);
   return Array.from(new Set(gallery));

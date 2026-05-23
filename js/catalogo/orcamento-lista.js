@@ -20,7 +20,7 @@
 
   // Orcamento - operacoes do carrinho
   const getItems = () => read();
-  const getMachineImage = (machine) => machine.image || machine.mainImageUrl || '';
+  const getMachineImage = (machine) => machine.mainImageUrl || machine.image || '';
   const getMachineStatusLabel = (machine) =>
     machine.statusLabel || machine.commercialStatus || machine.status || 'Sob consulta';
 
