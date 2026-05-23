@@ -19,6 +19,15 @@
     : window.firebase.initializeApp(firebaseConfig);
   const auth = window.firebase.auth(app);
   const db = window.firebase.firestore(app);
+  try {
+    db.settings({
+      experimentalAutoDetectLongPolling: true,
+      useFetchStreams: false,
+    });
+  } catch (error) {
+    // Firestore settings must run before the first operation. If another script already
+    // touched Firestore, keep the default transport and rely on the server function.
+  }
   let currentUser = null;
   let publishTimer = null;
 
@@ -44,7 +53,23 @@
     );
   };
 
-  const loadAll = async () => {
+  const loadAllFromFunction = async () => {
+    const idToken = await currentUser?.getIdToken();
+    if (!idToken) throw new Error('Sess&atilde;o administrativa expirada.');
+
+    const response = await fetchFunctionEndpoint('admin-catalog', {
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    });
+
+    if (response.status === 404) return null;
+    if (!response.ok) throw new Error('N&atilde;o foi poss&iacute;vel carregar o cat&aacute;logo.');
+
+    return response.json();
+  };
+
+  const loadAllDirect = async () => {
     const [machines, categories, settingsDoc] = await Promise.all([
       collectionToArray('products'),
       collectionToArray('categories'),
@@ -58,6 +83,17 @@
     };
   };
 
+  const loadAll = async () => {
+    try {
+      const data = await loadAllFromFunction();
+      if (data) return data;
+    } catch (error) {
+      if (!isFunctionFallbackAllowed(error)) throw error;
+    }
+
+    return loadAllDirect();
+  };
+
   const WRITE_BATCH_LIMIT = 450;
 
   const persistAll = async ({
@@ -68,13 +104,77 @@
     deletedCategories = [],
     triggerBuild = true,
   }) => {
+    try {
+      const saved = await persistAllFromFunction({
+        machines,
+        categories,
+        settings,
+        deletedProducts,
+        deletedCategories,
+      });
+      if (!saved) {
+        await persistAllDirect({ machines, categories, settings, deletedProducts, deletedCategories });
+      }
+    } catch (error) {
+      if (!isFunctionFallbackAllowed(error)) throw error;
+      await persistAllDirect({ machines, categories, settings, deletedProducts, deletedCategories });
+    }
+
+    if (triggerBuild) scheduleCatalogPublish();
+  };
+
+  const persistAllFromFunction = async ({
+    machines = [],
+    categories = [],
+    settings = {},
+    deletedProducts = [],
+    deletedCategories = [],
+  }) => {
+    const idToken = await currentUser?.getIdToken();
+    if (!idToken) throw new Error('Sess&atilde;o administrativa expirada.');
+
+    const response = await fetchFunctionEndpoint('admin-catalog', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        machines,
+        categories,
+        settings,
+        deletedProducts,
+        deletedCategories,
+      }),
+    });
+
+    if (response.status === 404) return false;
+
+    if (!response.ok) {
+      const message = await readErrorMessage(response, 'N&atilde;o foi poss&iacute;vel salvar as altera&ccedil;&otilde;es.');
+      throw new Error(message);
+    }
+
+    return true;
+  };
+
+  const persistAllDirect = async ({
+    machines = [],
+    categories = [],
+    settings = {},
+    deletedProducts = [],
+    deletedCategories = [],
+  }) => {
     await Promise.all([
       syncCollection('products', machines, deletedProducts),
       syncCollection('categories', categories, deletedCategories),
       db.collection('site_settings').doc('catalog').set(cleanPayload(settings), { merge: true }),
     ]);
-    if (triggerBuild) scheduleCatalogPublish();
   };
+
+  const isFunctionFallbackAllowed = (error) =>
+    error?.name === 'AbortError'
+    || /Failed to fetch|NetworkError|404/i.test(String(error?.message || ''));
 
   const syncCollection = async (collectionName, items, deletedIds = []) => {
     const collection = db.collection(collectionName);
@@ -135,13 +235,34 @@
 
   const signIn = async (email, password) => {
     const credential = await auth.signInWithEmailAndPassword(email, password);
-    const adminDoc = await db.collection('admins').doc(credential.user.uid).get();
-    if (!adminDoc.exists || adminDoc.data()?.active !== true) {
+    const hasAccess = await verifyAdminAccess(credential.user);
+    if (!hasAccess) {
       await auth.signOut();
       throw new Error('Usu&aacute;rio sem permiss&atilde;o administrativa.');
     }
     currentUser = credential.user;
     return getCurrentUser();
+  };
+
+  const verifyAdminAccess = async (user) => {
+    const idToken = await user?.getIdToken();
+    if (!idToken) return false;
+
+    try {
+      const response = await fetchFunctionEndpoint('admin-catalog?check=1', {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      });
+
+      if (response.ok) return true;
+      if (response.status !== 404) return false;
+    } catch (error) {
+      if (!isFunctionFallbackAllowed(error)) return false;
+    }
+
+    const adminDoc = await db.collection('admins').doc(user.uid).get();
+    return adminDoc.exists && adminDoc.data()?.active === true;
   };
 
   const signOut = async () => {
