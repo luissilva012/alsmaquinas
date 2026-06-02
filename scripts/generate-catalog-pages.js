@@ -80,17 +80,6 @@ const statusClassMap = {
   indisponivel: 'status-unavailable',
 };
 
-const schemaAvailabilityMap = {
-  disponivel: 'https://schema.org/InStock',
-  'pronta-entrega': 'https://schema.org/InStock',
-  'sob-consulta': 'https://schema.org/PreOrder',
-  reservada: 'https://schema.org/LimitedAvailability',
-  vendida: 'https://schema.org/OutOfStock',
-  locada: 'https://schema.org/OutOfStock',
-  manutencao: 'https://schema.org/OutOfStock',
-  indisponivel: 'https://schema.org/OutOfStock',
-};
-
 const baseRoutes = [
   { loc: '/', priority: '1.0' },
   { loc: '/catalogo.html', priority: '0.9' },
@@ -929,26 +918,38 @@ const renderSimilarSection = (machine) => {
 };
 
 const renderJsonLd = (machine) => {
-  const productJsonLd = {
+  const images = getGallery(machine).map(absoluteUrl);
+  const description = stripHtml(machine.seoDescription || machine.fullDescription || machine.shortDescription);
+  const pageUrl = productUrl(machine);
+  const organizationJsonLd = {
+    '@type': 'Organization',
+    name: 'ALS M\u00e1quinas',
+    url: siteUrl,
+    logo: `${siteUrl}/assets/imgs/logo-header.svg`,
+  };
+  const pageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: stripHtml(machine.name),
-    description: stripHtml(machine.seoDescription || machine.fullDescription || machine.shortDescription),
-    image: getGallery(machine).map(absoluteUrl),
-    sku: stripHtml(machine.slug || machine.id || machine.name),
-    mainEntityOfPage: productUrl(machine),
-    brand: {
-      '@type': 'Brand',
+    '@type': 'ItemPage',
+    name: stripHtml(machine.seoTitle || machine.name),
+    description,
+    keywords: [stripHtml(machine.category), 'maquinas industriais', 'catalogo tecnico', 'orcamento sob consulta']
+      .filter(Boolean)
+      .join(', '),
+    url: pageUrl,
+    image: images,
+    isPartOf: {
+      '@type': 'WebSite',
       name: 'ALS M\u00e1quinas',
+      url: siteUrl,
     },
-    category: stripHtml(machine.category),
-    url: productUrl(machine),
-    offers: {
-      '@type': 'Offer',
-      url: productUrl(machine),
-      availability: schemaAvailabilityMap[getMachineStatus(machine)] || 'https://schema.org/LimitedAvailability',
-      priceCurrency: 'BRL',
-      description: 'Equipamento sob consulta comercial.',
+    publisher: organizationJsonLd,
+    about: {
+      '@type': 'Thing',
+      name: stripHtml(machine.name),
+      description,
+      image: images,
+      url: pageUrl,
+      identifier: stripHtml(machine.slug || machine.id || machine.name),
     },
   };
 
@@ -972,12 +973,12 @@ const renderJsonLd = (machine) => {
         '@type': 'ListItem',
         position: 3,
         name: stripHtml(machine.name),
-        item: productUrl(machine),
+        item: pageUrl,
       },
     ],
   };
 
-  return stringifyJsonAscii([productJsonLd, breadcrumbJsonLd]);
+  return stringifyJsonAscii([pageJsonLd, breadcrumbJsonLd]);
 };
 
 const renderProductPage = (machine) => {

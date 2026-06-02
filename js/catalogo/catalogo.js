@@ -6,6 +6,8 @@
   const RATIO_ZOOM_CLASS = 'als-ratio-375-200';
   const RATIO_375_200 = 375 / 200;
   const RATIO_TOLERANCE = 0.01;
+  const SITE_URL = 'https://alsmaquinas.com.br';
+  const CATALOG_ITEMLIST_SCHEMA_ID = 'catalog-itemlist-jsonld';
   const generatedMachines = Array.isArray(window.ALS_CATALOG_MACHINES)
     ? window.ALS_CATALOG_MACHINES
     : [];
@@ -572,6 +574,37 @@
 
     applyRatioImageZoom(els.grid);
     showState('empty', filtered.length === 0);
+    updateCatalogItemListStructuredData(machines);
+  };
+
+  const updateCatalogItemListStructuredData = (items) => {
+    const activeItems = Array.isArray(items) ? items.filter((machine) => machine.active !== false) : [];
+    if (!activeItems.length) return;
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Catalogo de maquinas industriais ALS',
+      description: 'Lista de maquinas e equipamentos industriais ALS disponiveis para solicitacao de orcamento.',
+      numberOfItems: activeItems.length,
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      itemListElement: activeItems.map((machine, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: decodeHtml(machine.name || ''),
+        url: getAbsoluteCatalogUrl(machine.detailUrl || `catalogo/maquinas/${machine.slug || ''}/`),
+      })),
+    };
+
+    let script = document.getElementById(CATALOG_ITEMLIST_SCHEMA_ID);
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = CATALOG_ITEMLIST_SCHEMA_ID;
+      document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify(schema).replace(/</g, '\\u003c');
   };
 
   const applyRatioImageZoom = (root = document) => {
@@ -1051,6 +1084,17 @@
 
     const isNestedCatalogPage = window.location.pathname.includes('/catalogo/maquinas/');
     return `${isNestedCatalogPage ? '../../../' : ''}${assetMatch[0]}`;
+  }
+
+  function getAbsoluteCatalogUrl(value) {
+    const raw = decodeHtml(value || '').trim();
+    if (!raw) return `${SITE_URL}/catalogo.html`;
+
+    try {
+      return new URL(raw, `${SITE_URL}/`).href;
+    } catch (error) {
+      return `${SITE_URL}/catalogo.html`;
+    }
   }
 
   function escapeHtml(value) {

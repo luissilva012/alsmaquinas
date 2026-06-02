@@ -38,6 +38,8 @@
   };
 
   const loadProductsFromFunction = async () => {
+    if (!shouldUseFunctionEndpoint()) return null;
+
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
@@ -66,6 +68,14 @@
   };
 
   const fetchFunctionEndpoint = (name, options = {}) => fetch(`/${name}`, options);
+
+  const shouldUseFunctionEndpoint = () => {
+    const { hostname, port } = window.location;
+    const isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+    if (!isLocalHost) return true;
+
+    return port === '8788';
+  };
 
   const getDocumentId = (name) => String(name || '').split('/').pop() || '';
 
